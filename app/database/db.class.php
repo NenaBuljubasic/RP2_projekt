@@ -1,6 +1,6 @@
 <?php
 
-// Datoteku treba preimenovati u db.class.php
+
 
 class DB
 {

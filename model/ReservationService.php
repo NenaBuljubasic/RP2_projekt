@@ -1,6 +1,8 @@
 <?php
 
-require_once __DIR__ . '/../app/db.class.php';
+require_once __DIR__ . '/../app/database/db.class.php';
+require_once __DIR__ . '/user.class.php';
+require_once __DIR__ . '/lecture_hall.class.php';
 
 class ReservationService{
 
@@ -9,7 +11,7 @@ function getAllUsers()///dohvati sve korisnike
     try
     {
         $db = DB::getConnection();
-        $st = $db->prepare( 'SELECT id, username, password_hash, email, has_registered FROM project_users ORDER BY id');
+        $st = $db->prepare( 'SELECT id, username, password_hash, email, has_registered , is_admin FROM project_users ORDER BY id');
         $st->execute();
     } 
     catch( PDOException $e ) { exit( 'PDO error ' . $e->getMessage() ); }
@@ -18,37 +20,36 @@ function getAllUsers()///dohvati sve korisnike
     while( $row = $st->fetch() )
     {
         $arr[] = new User( $row['id'], $row['username'], $row['password_hash'], $row['email'],
-                           $row['has_registered']);
+                           $row['has_registered'],$row['is_admin']);
     }
 
     return $arr;///popis svih korisnika
   }
    
+function checkAdmin($id)///vraca true ukoliko je trenutno ulogirani korisnik Admin
+     {$arr=$this->getAllUsers();
 
-function addNewSale($id_product,$id_user)
-  {
-   $db = DB::getConnection();
+      foreach($arr as $row)
+           if($row->id===$id and $row->isAdmin===1)
+                        return true;
 
-  
-   try
-   {
-	   $st = $db->prepare( 'INSERT INTO project_user(i) VALUES (:id_product, :id_user)' );
+      return false;
+     }
+ 
+  function checkLogin($username,$password)
+      {$arr=$this->getAllUsers();
 
-	   $st->execute( array( 'id_product' =>$id_product , 'id_user' =>$id_user)); 
-   }
-   catch( PDOException $e ) { exit( "PDO error [dz2_products]: " . $e->getMessage() ); }
- }
-
-
-
-
+        foreach($arr as $row)
+             if($row->username===$username and $row->password_hash===$password)
+                              return $row->id;
 
 
-
-
-
+      return false;
+      }   
+ 
 
 
 }
+
 
 ?>

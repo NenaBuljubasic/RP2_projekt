@@ -3,9 +3,9 @@
 
 require_once __DIR__ . '/db.class.php';
 
-//create_table_users();
+create_table_users();
 //create_table_lecture_halls();
-create_table_reservations();
+//create_table_reservations();
 
 exit( 0 );
 
@@ -30,9 +30,10 @@ function has_table( $tblname )
 	return false;
 }
 
-/*
+
 function create_table_users()
-{
+{ 
+
 	$db = DB::getConnection();
 
 	if( has_table( 'project_users' ) )
@@ -46,7 +47,8 @@ function create_table_users()
 			'username varchar(50) NOT NULL,' .
 			'password_hash varchar(255) NOT NULL,'.
 			'email varchar(50) NOT NULL,' .
-			'has_registered int)'
+			'has_registered int,'.
+			'is_admin int)'
 		);
 
 		$st->execute();
@@ -56,6 +58,7 @@ function create_table_users()
 	echo "Napravio tablicu project_users.<br />";
 }
 
+/*
 
 function create_table_lecture_halls()
 {
@@ -80,7 +83,7 @@ function create_table_lecture_halls()
 	echo "Napravio tablicu project_lecture_halls.<br />";
 }
 
-*/
+*//*
 function create_table_reservations()
 {
 	$db = DB::getConnection();
@@ -104,6 +107,6 @@ function create_table_reservations()
 	catch( PDOException $e ) { exit( "PDO error [create project_reservations]: " . $e->getMessage() ); }
 
 	echo "Napravio tablicu project_reservations.<br />";
-}
+}*/
 
 ?> 

@@ -11,6 +11,7 @@
 	<button type="submit" name="gumb" value="login">Log in</button>
 	
 	<button type="submit" name="new" value="login">Sign up</button>
+	<button type="submit" name="admin" value="admin">Log in as an administrator</button>
 	</form>
 	</div>
 

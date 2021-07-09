@@ -4,8 +4,8 @@
 require_once __DIR__ . '/db.class.php';
 
 seed_table_users();
-seed_table_lecture_halls();
-seed_table_reservations();
+//seed_table_lecture_halls();
+//seed_table_reservations();
 
 exit( 0 );
 
@@ -17,19 +17,20 @@ function seed_table_users()
 	
 	try
 	{
-		$st = $db->prepare( 'INSERT INTO project_users(username, password_hash, email, has_registered) VALUES (:username, :password, \'a@b.com\',  \'1\')' );
+		$st = $db->prepare( 'INSERT INTO project_users(username, password_hash, email, has_registered, is_admin) VALUES (:username, :password, \'a@b.com\',  \'1\',:is_admin)' );
 
-		$st->execute( array( 'username' => 'marko', 'password' => password_hash( 'markovasifra', PASSWORD_DEFAULT ) ) );
-		$st->execute( array( 'username' => 'luka', 'password' => password_hash( 'lukinasifra', PASSWORD_DEFAULT ) ) );
-		$st->execute( array( 'username' => 'anja', 'password' => password_hash( 'anjinasifra', PASSWORD_DEFAULT ) ) );
-		$st->execute( array( 'username' => 'stipe', 'password' => password_hash( 'stipinasifra', PASSWORD_DEFAULT ) ) );
-		$st->execute( array( 'username' => 'pero', 'password' => password_hash( 'perinasifra', PASSWORD_DEFAULT ) ) );
+		$st->execute( array( 'username' => 'marko', 'password' => password_hash( 'markovasifra', PASSWORD_DEFAULT ),'is_admin'=>0 ) );
+		$st->execute( array( 'username' => 'luka', 'password' => password_hash( 'lukinasifra', PASSWORD_DEFAULT ),'is_admin'=>0) );
+		$st->execute( array( 'username' => 'anja', 'password' => password_hash( 'anjinasifra', PASSWORD_DEFAULT ),'is_admin'=>0 ) );
+		$st->execute( array( 'username' => 'stipe', 'password' => password_hash( 'stipinasifra', PASSWORD_DEFAULT ),'is_admin'=>0 ) );
+		$st->execute( array( 'username' => 'pero', 'password' => password_hash( 'perinasifra', PASSWORD_DEFAULT ),'is_admin'=>0 ) );
+		$st->execute( array( 'username' => 'sime', 'password' => password_hash( 'perinasifra', PASSWORD_DEFAULT ),'is_admin'=>1 ) );
 	}
 	catch( PDOException $e ) { exit( "PDO error [insert project_users]: " . $e->getMessage() ); }
 
 	echo "Ubacio u tablicu project_users.<br />";
 }
-
+/*
 
 // ------------------------------------------
 function seed_table_lecture_halls()
@@ -65,7 +66,7 @@ function seed_table_reservations()
 	catch( PDOException $e ) { exit( "PDO error [project_reservations]: " . $e->getMessage() ); }
 
 	echo "Ubacio u tablicu project_reservations<br />";
-}
+}*/
 ?> 
  
  
