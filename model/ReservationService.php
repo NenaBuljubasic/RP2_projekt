@@ -71,17 +71,12 @@ function getAllReservations()
 }
 
 function getUsersReservations($id_user) //prima id usera i dohvaca sve njegove rezervacija
-{$arr=$this->getAllReservations();
- $outputArray=[];
-  foreach($arr as $row)
-       {
+{  $arr=$this->getAllReservations();
+   $outputArray=[];
+   foreach($arr as $row)
           if($id_user===$row->id_user)
-                        {
-                              array_push($outputArray,$row);//dohvaca cijeli redak                        
+                   array_push($outputArray,$row);//dohvaca cijeli redak                        
  
-                        }
-                     
-       }
 }
 
 
@@ -97,6 +92,10 @@ function adminAddLecture_hall() //admin dodaje predavaonicu
     {}
 
 
+
+
+
+
 function reservationDelete($id_user,$id_reservation) ///user deleta svoju rezervaciju
     {$arr=$this->getAllReservations();
      
@@ -108,6 +107,17 @@ function reservationDelete($id_user,$id_reservation) ///user deleta svoju rezerv
                      }
 
 
+    }
+
+function addNewUser($username) //dodavanje sign up
+    { $arr=$this->getAllUsers();
+
+        foreach($arr as $row)
+             if($row->username===$username)
+                              return false;
+
+
+      return true;
     }
 }
 ?>

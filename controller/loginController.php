@@ -25,6 +25,20 @@ class LoginController extends BaseController
 				require_once __DIR__.'/../view/try_again.php'; //prebaci me nazad u formu za ulogiravanje
 			}
 		}
+
+      if(isset($_POST['new']))
+         { $ps = new ReservationService();
+			$username = $_POST["username"];
+			
+            
+			if($ps->addNewUser($username))
+			      require_once __DIR__.'/../view/lecture_halls_index.php';
+					   
+		     else
+			 require_once __DIR__.'/../view/try_again.php';
+		}
+
+
 	}
 	
 
