@@ -1,6 +1,6 @@
 <?php
 
-class User
+class Lecture_hall
 {
 	public $id, $title, $capacity;
 
