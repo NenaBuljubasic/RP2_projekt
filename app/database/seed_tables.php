@@ -3,14 +3,14 @@
 
 require_once __DIR__ . '/db.class.php';
 
-//seed_table_users();
+seed_table_users();
 seed_table_lecture_halls();
-//seed_table_reservations();
+seed_table_reservations();
 
 exit( 0 );
 
 // ------------------------------------------
-/*
+
 function seed_table_users()
 {
 	$db = DB::getConnection();
@@ -31,7 +31,7 @@ function seed_table_users()
 
 	echo "Ubacio u tablicu project_users.<br />";
 	
-}*/
+}
 
 // ------------------------------------------
 function seed_table_lecture_halls()
@@ -67,7 +67,7 @@ function seed_table_lecture_halls()
 
 	echo "Ubacio u tablicu project_lecture_halls.<br />";
 }
-/*
+
 // ------------------------------------------
 function seed_table_reservations()
 {
@@ -78,13 +78,21 @@ function seed_table_reservations()
 	{
 	$st = $db->prepare( 'INSERT INTO project_reservations( id_user,id_lecture_hall, reservation_start,reservation_end) VALUES (:id_user, :id_lecture_hall, :reservation_start, :reservation_end)' );
 
-	$st->execute( array( 'id_user' => 1, 'id_lecture_hall' => 1, 'reservation_start' => '2011-01-01T15:03:01.012345','reservation_end' => '2011-01-01T15:03:01.012345') );
-		
+	$st->execute( array( 'id_user' => 12, 'id_lecture_hall' => 1, 'reservation_start' => '2021-01-01T15:03:01.012345','reservation_end' => '2021-01-01T17:03:01.012345') );
+	$st->execute( array( 'id_user' => 12, 'id_lecture_hall' => 3, 'reservation_start' => '2021-01-01T17:03:01.012345','reservation_end' => '2021-01-01T19:03:01.012345') );
+	$st->execute( array( 'id_user' => 13, 'id_lecture_hall' => 3, 'reservation_start' => '2021-01-01T16:03:01.012345','reservation_end' => '2021-01-01T17:03:01.012345') );
+	$st->execute( array( 'id_user' => 15, 'id_lecture_hall' => 3, 'reservation_start' => '2021-01-01T15:03:01.012345','reservation_end' => '2021-01-01T16:03:01.012345') );
+	$st->execute( array( 'id_user' => 15, 'id_lecture_hall' => 5, 'reservation_start' => '2021-01-01T13:03:01.012345','reservation_end' => '2021-01-01T15:03:01.012345') );
+	$st->execute( array( 'id_user' => 15, 'id_lecture_hall' => 5, 'reservation_start' => '2021-01-01T19:03:01.012345','reservation_end' => '2021-01-01T22:03:01.012345') );
+	$st->execute( array( 'id_user' => 14, 'id_lecture_hall' => 8, 'reservation_start' => '2021-01-01T11:03:01.012345','reservation_end' => '2021-01-01T13:03:01.012345') );
+	$st->execute( array( 'id_user' => 16, 'id_lecture_hall' => 8, 'reservation_start' => '2021-01-01T10:03:01.012345','reservation_end' => '2021-01-01T14:03:01.012345') );
+	$st->execute( array( 'id_user' => 16, 'id_lecture_hall' => 5, 'reservation_start' => '2021-01-01T09:03:01.012345','reservation_end' => '2021-01-01T09:03:30.012345') );
+	$st->execute( array( 'id_user' => 16, 'id_lecture_hall' => 8, 'reservation_start' => '2021-01-01T20:03:01.012345','reservation_end' => '2021-01-01T22:03:01.012345') );
 	}
 	catch( PDOException $e ) { exit( "PDO error [project_reservations]: " . $e->getMessage() ); }
 
 	echo "Ubacio u tablicu project_reservations<br />";
-}*/
+}
 ?> 
  
  
