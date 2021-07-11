@@ -141,10 +141,7 @@ class ReservationService{
 
 
 
-    function addNewUser($username,$password_hash,$email) //dodavanje sign up, triba popravit email
-    { 
-        $arr=$this->getAllUsers();
-    }
+  
 
 function addNewUser($username,$password_hash,$email) 
     { $arr=$this->getAllUsers();
