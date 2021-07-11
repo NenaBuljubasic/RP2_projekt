@@ -58,7 +58,7 @@ function getAllReservations()
     $arr = array();
     while( $row = $st->fetch() )
     {
-        $arr[] = new Reservation( $row['id_reservation'], $row['id_user'], $row['id_lecture_hall'], $row['reservation_start'],
+        $arr[] = new Reservation( $row['id_reservation'], $row['id_lecture_hall'], $row['id_user'], $row['reservation_start'],
                            $row['reservation_end']);
     }
 
@@ -93,15 +93,18 @@ function getUsersReservations($id_user) //prima id usera i dohvaca sve njegove r
 {  $arr=$this->getAllReservations();
    $outputArrayForTitles=[];
    $outputArrayForDates=[];
+   
    foreach($arr as $row)
-          if($id_user===$row->id_user)
-                   {
+          { 
+            if($id_user===$row->id_user)
+                   { 
                     array_push($outputArrayForTitles,$this->getLecture_hallById($row->id_lecture_hall));
                     array_push($outputArrayForDates,$row);
- 
-                   }                      
+                    
+                   }  }                  
  $outputArray=[$outputArrayForTitles,$outputArrayForDates];
-   return $outputArray;
+ 
+ return $outputArray;
 }
 
 
@@ -133,7 +136,7 @@ function adminAddLecture_hall() //admin dodaje predavaonicu
 
 
 
-function addNewUser($username,$password_hash,$email) //dodavanje sign up, triba popravit email
+function addNewUser($username,$password_hash,$email) 
     { $arr=$this->getAllUsers();
 
         foreach($arr as $row)
@@ -146,7 +149,7 @@ function addNewUser($username,$password_hash,$email) //dodavanje sign up, triba 
           $db = DB::getConnection();
           $db->exec("INSERT INTO project_users (username, password_hash,email,is_admin)" .
           " VALUES ('$username','$password_hash','$email','0')" );
-          //$st->execute();
+          
         } 
         catch( PDOException $e ) 
               { exit( 'PDO error ' . $e->getMessage() ); }

@@ -1,6 +1,6 @@
 <?php require_once __SITE_PATH . '/view/_header.php'; ?>
 
-<form class="login" method="post" action="<?php echo __SITE_URL . '/index.php?rt=login/korisnik'?>">
+<form class="login" method="post" action="<?php echo __SITE_URL . '/index.php?rt=user/login'?>">
 	<div class="wrapper">
 	Username: 
 	<input type="text" name="username" />
@@ -15,8 +15,6 @@
 <?php require_once __SITE_PATH . '/view/_footer.php'; 
 
 
-/*
-<button type="submit" name="new" value="login">Sign up</button>
-	<button type="submit" name="admin" value="admin">Log in as an administrator</button>*/
+
 
 ?>
