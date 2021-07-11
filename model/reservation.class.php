@@ -2,7 +2,7 @@
 
 class Reservation
 {
-	protected $id_reservation, $id_lecture_hall,$id_user,$reservation_start,$reservation_end;
+	public $id_reservation, $id_lecture_hall,$id_user,$reservation_start,$reservation_end;
 
 	function __construct($id_reservation, $id_lecture_hall,$id_user,$reservation_start,$reservation_end)
 	{

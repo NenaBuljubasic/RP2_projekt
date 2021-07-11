@@ -2,8 +2,9 @@
 <html lang="hr">
 <head>
 	<meta charset="utf8">
-	<title>Rezerviraj uèionicu</title>
+	<title>Rezerviraj uï¿½ionicu</title>
 	<link rel="stylesheet" href="<?php echo __SITE_URL;?>/css/style1.css">
+	<style> th, td { border: solid 1px; }</style>
 </head>
 <body>
 	<h1>

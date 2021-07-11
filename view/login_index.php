@@ -9,10 +9,14 @@
 	<input type="password" name="password" />
 	<br />
 	<button type="submit" name="gumb" value="login">Log in</button>
-	
-	<button type="submit" name="new" value="login">Sign up</button>
-	<button type="submit" name="admin" value="admin">Log in as an administrator</button>
 	</form>
 	</div>
 
-<?php require_once __SITE_PATH . '/view/_footer.php'; ?>
+<?php require_once __SITE_PATH . '/view/_footer.php'; 
+
+
+/*
+<button type="submit" name="new" value="login">Sign up</button>
+	<button type="submit" name="admin" value="admin">Log in as an administrator</button>*/
+
+?>
