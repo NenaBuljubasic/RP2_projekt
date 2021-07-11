@@ -42,10 +42,9 @@ class ReservationService{
             $arr[] = new Lecture_hall( $row['id'], $row['title'],$row['capacity'],$row['floor']);
         }
 
-<<<<<<< HEAD
         return $arr;
     
-=======
+
 function getAllReservations()
   { 
     try
@@ -61,7 +60,7 @@ function getAllReservations()
     {
         $arr[] = new Reservation( $row['id_reservation'], $row['id_lecture_hall'], $row['id_user'], $row['reservation_start'],
                            $row['reservation_end']);
->>>>>>> e64e6ed62a7211c4bbfc166936da11398bba8d81
+
     }
 
     function getAllReservations()
@@ -125,7 +124,7 @@ function getAllReservations()
         $outputArray=[$outputArrayForTitles,$outputArrayForDates];
         return $outputArray;
     }
-=======
+
 function getUsersReservations($id_user) //prima id usera i dohvaca sve njegove rezervacija
 {  $arr=$this->getAllReservations();
    $outputArrayForTitles=[];
@@ -143,7 +142,6 @@ function getUsersReservations($id_user) //prima id usera i dohvaca sve njegove r
  
  return $outputArray;
 }
->>>>>>> e64e6ed62a7211c4bbfc166936da11398bba8d81
 
 
     function getLecture_hallById($id_lecture_hall)
@@ -179,10 +177,10 @@ function getUsersReservations($id_user) //prima id usera i dohvaca sve njegove r
     function addNewUser($username,$password_hash,$email) //dodavanje sign up, triba popravit email
     { 
         $arr=$this->getAllUsers();
-=======
+
 function addNewUser($username,$password_hash,$email) 
     { $arr=$this->getAllUsers();
->>>>>>> e64e6ed62a7211c4bbfc166936da11398bba8d81
+
 
         foreach($arr as $row)
             if($row->username===$username)
@@ -190,17 +188,16 @@ function addNewUser($username,$password_hash,$email)
 
         try
         {
-<<<<<<< HEAD
+
             $db = DB::getConnection();
             $db->exec("INSERT INTO project_users (username, password_hash,email,is_admin)" .
             " VALUES ('$username','$password_hash','$email','0')" );
             //$st->execute();
-=======
+
           $db = DB::getConnection();
           $db->exec("INSERT INTO project_users (username, password_hash,email,is_admin)" .
           " VALUES ('$username','$password_hash','$email','0')" );
-          
->>>>>>> e64e6ed62a7211c4bbfc166936da11398bba8d81
+
         } 
         catch( PDOException $e ) 
         { 
