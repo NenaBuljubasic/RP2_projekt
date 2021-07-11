@@ -109,7 +109,7 @@ function getAllReservations()
     
 
 
-<<<<<<< HEAD
+
     function getUsersReservations($id_user) //prima id usera i dohvaca sve njegove rezervacija
     {  
         $arr=$this->getAllReservations();
@@ -173,7 +173,7 @@ function getUsersReservations($id_user) //prima id usera i dohvaca sve njegove r
 
 
 
-<<<<<<< HEAD
+
     function addNewUser($username,$password_hash,$email) //dodavanje sign up, triba popravit email
     { 
         $arr=$this->getAllUsers();
