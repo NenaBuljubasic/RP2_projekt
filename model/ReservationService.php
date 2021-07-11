@@ -43,7 +43,7 @@ class ReservationService{
         }
 
         return $arr;
-    
+    }
 
 function getAllReservations()
   { 
