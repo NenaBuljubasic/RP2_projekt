@@ -1,7 +1,7 @@
 <?php require_once __SITE_PATH . '/view/_header.php'; ?>
 
 <form class="login" method="post" action="<?php echo __SITE_URL . '/index.php?rt=login/korisnik'?>">
-	<div class="wrapper">
+	<!--<div class="wrapper">-->
 	Username: 
 	<input type="text" name="username" />
 	<br />
@@ -10,7 +10,7 @@
 	<br />
 	<button type="submit" name="gumb" value="login">Log in</button>
 	</form>
-	</div>
+	<!--</div>-->
 
 <?php require_once __SITE_PATH . '/view/_footer.php'; 
 
