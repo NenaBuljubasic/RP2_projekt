@@ -62,6 +62,7 @@ function getAllReservations()
                            $row['reservation_end']);
 
     }
+  }
 
     function getAllReservations()
     { 
@@ -131,13 +132,14 @@ function getUsersReservations($id_user) //prima id usera i dohvaca sve njegove r
    $outputArrayForDates=[];
    
    foreach($arr as $row)
-          { 
+    { 
             if($id_user===$row->id_user)
                    { 
                     array_push($outputArrayForTitles,$this->getLecture_hallById($row->id_lecture_hall));
                     array_push($outputArrayForDates,$row);
                     
-                   }  }                  
+                   } 
+    }                  
  $outputArray=[$outputArrayForTitles,$outputArrayForDates];
  
  return $outputArray;
@@ -177,6 +179,7 @@ function getUsersReservations($id_user) //prima id usera i dohvaca sve njegove r
     function addNewUser($username,$password_hash,$email) //dodavanje sign up, triba popravit email
     { 
         $arr=$this->getAllUsers();
+    }
 
 function addNewUser($username,$password_hash,$email) 
     { $arr=$this->getAllUsers();
@@ -238,6 +241,6 @@ function addNewUser($username,$password_hash,$email)
     }
 
 
-
+    
 }
 ?>
