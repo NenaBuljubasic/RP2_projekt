@@ -1,10 +1,11 @@
 <?php
+require_once __DIR__ . '/../model/reservationService.php';
 
 class SiteController extends BaseController{
 
 public function index()
 {
-    if(isset($_POST["log"]) or isset($_POST["admin"]))
+    if(isset($_POST["log"]))
     { 
         require_once __DIR__.'/../view/login_index.php';
     }
@@ -16,8 +17,7 @@ public function index()
     {
         require_once __DIR__.'/../view/administrator_index.php';
     }
-
-
+    
 }
 
 

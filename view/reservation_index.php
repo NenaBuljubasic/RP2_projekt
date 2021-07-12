@@ -1,4 +1,5 @@
-<?php require_once __SITE_PATH . '/view/_header1.php'; ?>
+<?php require_once __SITE_PATH . '/view/_header.php'; ?>
+<?php require_once __SITE_PATH . '/view/toolbar_index.php'; ?>
     <form class="reservation" method="post" action="<?php echo __SITE_URL . '/index.php?rt=prostorije/reserve'?>">
         <p>Datum: <input type="text" id="datepicker"></p>
         <p>

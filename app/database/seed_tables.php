@@ -3,14 +3,14 @@
 
 require_once __DIR__ . '/db.class.php';
 
-seed_table_users();
-seed_table_lecture_halls();
+//seed_table_users();
+//seed_table_lecture_halls();
 seed_table_reservations();
 
 exit( 0 );
 
 // ------------------------------------------
-
+/*
 function seed_table_users()
 {
 	$db = DB::getConnection();
@@ -67,7 +67,7 @@ function seed_table_lecture_halls()
 
 	echo "Ubacio u tablicu project_lecture_halls.<br />";
 }
-
+*/
 // ------------------------------------------
 function seed_table_reservations()
 {

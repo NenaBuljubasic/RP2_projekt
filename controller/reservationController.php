@@ -7,15 +7,21 @@ class ReservationController extends BaseController{
 		
 	}
     public function delete()
-    { //treba mi date i prostorija
+    {  
         $rs=new ReservationService();
-        $rs->deleteReservation($_POST["delete"]);
-    }
+        $arr=$rs->getAllReservations();
+        
+        foreach($arr as $row)
+            if(isset($_POST[$row->id_reservation]))
+                       { 
+                         
+                         $rs->deleteReservation($row->id_reservation);
+                      }
+     header('Location:index.php?rt=user/login');
+   }
     public function reserve()
-    {
-        $rs=new ReservationService();
-        $rs->newReservation(/*$_POST["delete"]*/);//morat će nešto slat
-        require_once __DIR__.'/../view/reservation_index.php';
+    { 
+       require_once __DIR__.'/../view/reservation_index.php';
     }
     
 }

@@ -5,26 +5,23 @@ require_once __DIR__ .'/../model/reservationService.php';
 
 class UserController extends BaseController{
   public function index() 
-<<<<<<< HEAD
-  {
-		
-=======
 	{
 		$this->registry->template->show( 'login_index' );
->>>>>>> e64e6ed62a7211c4bbfc166936da11398bba8d81
 	}
 public function login()
-	{
-	 $ps = new ReservationService();
-			$username = $_POST["username"];
-			$password = $_POST["password"];  //nzm jeli sigurno ovako slat password
-			$provjera = $ps->checkLogin( $username, $password);
+	 { 
+	  $ps = new ReservationService();
+	  if(!isset($_SESSION["user_id"]))
+		{
+			$_SESSION["username"] = $_POST["username"];
+	     	$_SESSION["password"] = $_POST["password"];
+		}
+	  $provjera = $ps->checkLogin( $_SESSION["username"],$_SESSION["password"]);
+		
 			if( $provjera) //sada cemo zapamtit zasad samo id u SESSION-u, lako cemo kasnije i druge stvari ako treba
 			{  $_SESSION['user_id']=$provjera;
 				$arr1=array();
-				
-                $arr1=$ps->getUsersReservations($_SESSION['user_id'])[0];
-				
+				$arr1=$ps->getUsersReservations($_SESSION['user_id'])[0];
 				$arr2=array();
 				$arr2=$ps->getUsersReservations($_SESSION['user_id'])[1];
 				require_once __DIR__.'/../view/show_lecture_halls_index.php';
@@ -33,28 +30,45 @@ public function login()
 			{
 				require_once __DIR__.'/../view/try_again.php'; //prebaci me nazad u formu za ulogiravanje
 			}
-		}
+	 }
+		
 	public function signup()
       {
         $ps = new ReservationService();
-			$username = $_POST["username"];
-			$password_hash=$_POST["password"];
+			$_SESSION['username'] = $_POST["username"];
+			$_SESSION['password']=$_POST["password"];
             $email=$_POST["email"];
-			if($ps->addNewUser($username,$password_hash,$email))
+			if($ps->addNewUser($_SESSION['username'],$_SESSION['password'],$email))
 			      {
-					$arr1=array();
-                    $arr1=$ps->getUsersReservations($_SESSION['user_id'])[0];
-				    $arr2=array();
-				    $arr2=$ps->getUsersReservations($_SESSION['user_id'])[1];  
+					$_SESSION['user_id']=$ps->getUserId($_SESSION['username']);
 					
-					require_once __DIR__.'/../view/show_lecture_halls_index.php';
+					require_once __DIR__.'/../view/reservation_index.php';
 				  }	   
 		     else
-			 require_once __DIR__.'/../view/try_again.php';
+			 require_once __DIR__.'/../view/site_index.php';
 		} 
 
 
+   public function logout()
+       {
+	       session_unset();
+		   require_once __DIR__.'/../view/site_index.php';
+         }
 
+
+public function unlogged()
+   { $ps = new ReservationService();
+
+	  //$ps->$_POST["row"];
+   }
+public function administrator()
+   { $ps=new ReservationService();
+	 $id=$ps->getUserId($_POST["username"]);
+	 
+     if($ps->checkAdmin($id)===true && $id!==false)
+		   require_once __DIR__.'/../view/administrator_site_index.php';
+           
+   }
 }
 ?>
 

@@ -1,7 +1,7 @@
 <?php require_once __SITE_PATH . '/view/_header.php'; ?>
 
 
-<form class="login" method="post" action="<?php echo __SITE_URL . '/index.php?rt=login/signup'?>">
+<form class="login" method="post" action="<?php echo __SITE_URL . '/index.php?rt=user/signup'?>">
 	<div class="wrapper">
 	Username: 
 	<input type="text" name="username" />

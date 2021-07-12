@@ -51,7 +51,7 @@ class ReservationService{
         try
         {
             $db = DB::getConnection();
-            $st = $db->prepare( 'SELECT id_reservation, id_user, id_lecture_hall,reservation_start, reservation_end FROM project_reservations ORDER BY id_reservation');
+            $st = $db->prepare( 'SELECT id_reservation, id_lecture_hall, id_user,reservation_start, reservation_end FROM project_reservations ORDER BY id_reservation');
             $st->execute();
         } 
         catch( PDOException $e ) { exit( 'PDO error ' . $e->getMessage() ); }
@@ -59,7 +59,7 @@ class ReservationService{
         $arr = array();
         while( $row = $st->fetch() )
         {
-            $arr[] = new Reservation( $row['id_reservation'], $row['id_user'], $row['id_lecture_hall'], $row['reservation_start'],
+            $arr[] = new Reservation( $row['id_reservation'], $row['id_lecture_hall'], $row['id_user'], $row['reservation_start'],
                             $row['reservation_end']);
         }
 
@@ -70,10 +70,12 @@ class ReservationService{
     function checkAdmin($id)///vraca true ukoliko je trenutno ulogirani korisnik Admin
     {
         $arr=$this->getAllUsers();
-
+       
         foreach($arr as $row)
-            if($row->id === $id and $row->isAdmin === 1)
-                return true;
+        {
+         
+         if($row->id === $id && $row->is_admin === '1')
+              return true;}
 
         return false;
     }
@@ -109,7 +111,14 @@ class ReservationService{
     }
 
 
+function getUserId($username)
+   {$arr=$this->getAllUsers();
 
+    foreach($arr as $row)
+         if($row->username===$username) return $row->id;
+
+    return false;
+   }
 
     function getLecture_hallById($id_lecture_hall)
     { 
@@ -158,10 +167,6 @@ function addNewUser($username,$password_hash,$email)
             $db->exec("INSERT INTO project_users (username, password_hash,email,is_admin)" .
             " VALUES ('$username','$password_hash','$email','0')" );
             //$st->execute();
-
-          $db = DB::getConnection();
-          $db->exec("INSERT INTO project_users (username, password_hash,email,is_admin)" .
-          " VALUES ('$username','$password_hash','$email','0')" );
 
         } 
         catch( PDOException $e ) 
