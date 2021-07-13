@@ -8,6 +8,8 @@
     <button type="submit" name="sign" value="login">Sign up</button>
 	<br />
 	<button type="submit" name="admin" value="admin">Log in as an administrator</button>
+	<br>
+	<button type="submit" name="nolog" value="nolog">Log in as guest</button>
 	
 </form>
 
