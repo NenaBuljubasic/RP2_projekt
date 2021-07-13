@@ -194,11 +194,66 @@ function addNewUser($username,$password_hash,$email)
 
 
     }
-    function newReservation()
+    function newReservation($start, $end, $hall, $user, $date)
     {
+        
         try
         {
-            //$db = DB::getConnection();
+        
+            $temp = explode('/', $date);
+            $date1 = $temp[2] . '-' . $temp[0] . '-' . $temp[1];
+
+            $arr=$this->getAllLecture_halls();
+            $hall1 = 0;
+            foreach($arr as $row)
+            {
+                if($row->title === $hall) 
+                    $hall1 = $row->id; //ne radi za praktikume
+            }
+            $start1 =$date1 . ' ' . $start . ':00'; 
+            $end1 = $date1 . ' ' . $end . ':00'; 
+            
+            $current_date = new DateTime('now');
+            $begin = new DateTime($start1);
+            $endd = new DateTime($end1);
+
+            if($current_date >= $begin)
+            {
+                return -3; //ako je krivi
+            }
+            if($begin >= $endd)
+            {
+                return -1;
+            }
+            
+            $start2 = date ('Y-m-d H:i:s', strtotime($start1));
+            $end2 = date ('Y-m-d H:i:s', strtotime($end1));
+            
+            
+
+            //provjera
+            $db = DB::getConnection();
+            $st = $db->prepare('SELECT id_lecture_hall, reservation_start, reservation_end from project_reservations');
+            $st->execute();
+
+            $arr = array();
+            $pr = 0;
+            while( $row = $st->fetch() )
+            {
+                $dt = new DateTime($row['reservation_start']);
+                $dd = $dt -> format('Y-m-d H:i:s');
+                if( $start2 >= $row['reservation_start']  and $start2 < $row['reservation_end']  and (int)$row['id_lecture_hall'] === (int)$hall1) 
+                {
+                   return -2;// -2 za koliziju s rezervacijom iz baze
+                }
+            }
+  
+            $db = DB::getConnection();
+            $db->exec("INSERT INTO project_reservations (id_user, id_lecture_hall, reservation_start, reservation_end)" .
+            " VALUES ('$user','$hall1','$start2', '$end2' )");
+            
+            
+            return 1; //1 za sve ok
             
             
         } 
