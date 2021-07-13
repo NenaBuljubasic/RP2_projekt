@@ -1,7 +1,7 @@
 
 <?php
 
-require_once __DIR__ .'/../model/reservationService.php';
+
 
 class UserController extends BaseController{
   public function index() 
@@ -67,8 +67,16 @@ public function administrator()
 	 
 
 
-     if($ps->checkAdmin($id)===true && $id!==false && $ps->checkLogin($_POST["username"],$_POST["password"])!=false)
-		   require_once __DIR__.'/../view/administrator_site_index.php';
+    if($ps->checkAdmin($id)===true && $id!==false && $ps->checkLogin($_POST["username"],$_POST["password"])!=false)
+	{
+		$arr1=array();
+		$arr1=$ps->getAllUsersReservations($_SESSION['user_id'])[0];
+		$arr2=array();
+		$arr2=$ps->getAllUsersReservations($_SESSION['user_id'])[1];
+		
+		require_once __DIR__.'/../view/show_lecture_halls_index.php';
+		//require_once __DIR__.'/../view/administrator_site_index.php';
+	}
            
    }
 }
