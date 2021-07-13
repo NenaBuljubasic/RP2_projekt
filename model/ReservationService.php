@@ -87,25 +87,23 @@ class ReservationService{
         foreach($arr as $row)
             if($row->username === $username)///provjeri lozinku
                     {
-                     if(password_verify($password,$row->password_hash))
-                                return true;
+                    // if(password_verify($password,$row->password_hash))
+                                return $row->id;
                     }
 
 
         return false;
     }   
     
-
-
-
-    function getUsersReservations($id_user) //prima id usera i dohvaca sve njegove rezervacija
-    {  
+ function getUsersReservations($id_user) //prima id usera i dohvaca sve njegove rezervacija
+    {   
         $arr=$this->getAllReservations();
+        
         $outputArrayForTitles=[];
         $outputArrayForDates=[];
         foreach($arr as $row)
             if($id_user===$row->id_user)
-                {
+                {   
                     array_push($outputArrayForTitles,$this->getLecture_hallById($row->id_lecture_hall));
                     array_push($outputArrayForDates,$row);
                 }                      

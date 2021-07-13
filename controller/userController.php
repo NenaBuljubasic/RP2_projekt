@@ -14,7 +14,7 @@ public function login()
 	  if(!isset($_SESSION["user_id"]))
 		{
 			$_SESSION["username"] = $_POST["username"];
-	     	
+			$_SESSION["password"] = $_POST["password"];
 		}
 	  $provjera = $ps->checkLogin( $_SESSION["username"],$_SESSION["password"]);
 		
@@ -24,6 +24,7 @@ public function login()
 				$arr1=$ps->getUsersReservations($_SESSION['user_id'])[0];
 				$arr2=array();
 				$arr2=$ps->getUsersReservations($_SESSION['user_id'])[1];
+				
 				require_once __DIR__.'/../view/show_lecture_halls_index.php';
             }
 			else
