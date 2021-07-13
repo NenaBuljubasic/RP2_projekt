@@ -66,6 +66,20 @@ class ReservationService{
         return $arr;///popis svih rezervacija
 
     }
+    function getAllUsersReservations() //za admina fja
+    {   
+        $arr=$this->getAllReservations();
+        
+        $outputArrayForTitles=[];
+        $outputArrayForDates=[];
+        foreach($arr as $row)
+        {   
+            array_push($outputArrayForTitles,$this->getLecture_hallById($row->id_lecture_hall));
+            array_push($outputArrayForDates,$row);
+        }                      
+        $outputArray=[$outputArrayForTitles,$outputArrayForDates];
+        return $outputArray;
+    }
 
     function checkAdmin($id)///vraca true ukoliko je trenutno ulogirani korisnik Admin
     {
