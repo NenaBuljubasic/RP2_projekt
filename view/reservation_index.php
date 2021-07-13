@@ -64,9 +64,9 @@
             
 
         </p>
-        <input type="radio" name="floor" value="0" /> Prizemlje <br />
+        <!--<input type="radio" name="floor" value="0" /> Prizemlje <br />
         <input type="radio" name="floor" value="1" /> Prvi kat <br />
-        <button type="sumbit" id="reserve" name="reserve">Rezerviraj</button>   <br/>
+        <button type="sumbit" id="reserve" name="reserve">Rezerviraj</button>   <br/>--zasad ne
         
         <!--<canvas width="1000" height="500" id="cnv" style="border: solid 1px;"></canvas>  nisam uspila zasad-->
 
@@ -79,14 +79,11 @@
   } );
 $(document).ready(function(){                
                 
-    $("#reserve").on('click', check);
+    
     
 });
 
-function check()
-{
-   
-}        
+        
 
 
 
