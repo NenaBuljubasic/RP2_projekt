@@ -20,8 +20,21 @@ class ReservationController extends BaseController{
      header('Location:index.php?rt=user/login');
    }
     public function reserve()
-    { 
-       require_once __DIR__.'/../view/reservation_index.php';
+    {
+        $this->registry->template->show( 'reservation_index' );
+        $rs=new ReservationService();
+        
+        $user = $_SESSION['user_id'];
+        if(isset($_POST['reserve']))
+        {
+            $pr = $rs->newReservation($_POST['start'],$_POST['end'],$_POST['hall'], $user , $_POST['date'] );//morat će nešto slat                        
+            if($pr === -1)
+                $this->registry->template->show( 'r_index' );// ovo promijenit
+            
+            
+        }
+        //$this->registry->template->show( 'reservation_index' );
+        //require_once __DIR__.'/../view/reservation_index.php';
     }
     
 }
