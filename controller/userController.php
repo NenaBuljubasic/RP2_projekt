@@ -23,9 +23,9 @@ public function login()
 		
 			    
 				$arr1=array();
-				$arr1=$ps->getUsersReservations($_SESSION['user_id'])[0];
+				$arr1=$ps->getUsersReservations()[0];
 				$arr2=array();
-				$arr2=$ps->getUsersReservations($_SESSION['user_id'])[1];
+				$arr2=$ps->getUsersReservations()[1];
 				
 				require_once __DIR__.'/../view/show_lecture_halls_index.php';
             
