@@ -150,9 +150,6 @@ function getUserId($username)
 
 
 
-
-  
-
 function addNewUser($username,$password_hash,$email) 
     { $arr=$this->getAllUsers();
 
@@ -162,11 +159,11 @@ function addNewUser($username,$password_hash,$email)
                 return false;
 
         try
-        {
+        { $hash=password_hash($password_hash,PASSWORD_DEFAULT);
 
             $db = DB::getConnection();
             $db->exec("INSERT INTO project_users (username, password_hash,email,is_admin)" .
-            " VALUES ('$username','$password_hash','$email','0')" );
+            " VALUES ('$username','$hash','$email','0')" );
             //$st->execute();
 
         } 
@@ -176,6 +173,9 @@ function addNewUser($username,$password_hash,$email)
         }
         return true;
     }
+
+  
+
 
 
     function deleteReservation($reservation_id)
