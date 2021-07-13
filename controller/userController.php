@@ -13,11 +13,12 @@ public function login()
 	  $ps = new ReservationService();
 	  
 	if(!isset($_SESSION["user_id"]))
-			{
+			{ echo "da";
 				$_SESSION["username"] = $_POST["username"];
 			
 				$provjera = $ps->checkLogin( $_SESSION["username"],$_POST["password"]);
-				if($provjera===false) require_once __DIR__.'/../view/try_again.php'; //prebaci me nazad u formu za ulogiravanje
+				if($provjera===false) {require_once __DIR__.'/../view/try_again.php'; //prebaci me nazad u formu za ulogiravanje
+					                   exit;}
 				//else $_SESSION["user_id"]=$provjera;
 			}
 			

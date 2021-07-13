@@ -97,9 +97,9 @@ class ReservationService{
         foreach($arr as $row)
             if($row->username === $username)///provjeri lozinku
                     {
-                    // if(password_verify($password,$row->password_hash))
-                                $_SESSION['user_id']=$row->id;
-                                return true;
+                    if(password_verify($password,$row->password_hash))
+                                {$_SESSION['user_id']=$row->id;
+                                return true;}
                     }
 
 	//$_SESSION['user_id']=$row->id;
