@@ -21,9 +21,3 @@
 	</h1>
 
 
-	<nav>
-		<a href="<?php echo __SITE_URL; ?>/index.php?rt=login/korisnik">Moje rezervacije</a>
-		<a href="<?php echo __SITE_URL; ?>/index.php?rt=reservation/reserve">Nova rezervacija</a>
-		<a href="<?php echo __SITE_URL; ?>/index.php?rt=login">Odjavi se</a> <!-- vidit di ce poslat ovo-->
-		
-	</nav>
