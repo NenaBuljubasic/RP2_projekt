@@ -43,20 +43,20 @@
                 <option value="001" name="hall">001</option>
                 <option value="PR2" name="hall">Praktikum 2</option>
                 <option value="002" name="hall">002</option>
-                <option value="003" name="hall">10:00</option>
-                <option value="004" name="hall">11:00</option>
-                <option value="005" name="hall">12:00</option>
-                <option value="006" name="hall">13:00</option>
-                <option value="101" name="hall">14:00</option>
-                <option value="102" name="hall">15:00</option>
-                <option value="103" name="hall">16:00</option>
-                <option value="104" name="hall">17:00</option>
-                <option value="105" name="hall">18:00</option>
-                <option value="107" name="hall">19:00</option>
-                <option value="108" name="hall">20:00</option>
-                <option value="PR3" name="hall">10:00</option>
-                <option value="PR4" name="hall">10:00</option>
-                <option value="PR5" name="hall">10:00</option>
+                <option value="003" name="hall">003</option>
+                <option value="004" name="hall">004</option>
+                <option value="005" name="hall">005</option>
+                <option value="006" name="hall">006</option>
+                <option value="101" name="hall">101</option>
+                <option value="102" name="hall">102</option>
+                <option value="103" name="hall">103</option>
+                <option value="104" name="hall">104</option>
+                <option value="105" name="hall">105</option>
+                <option value="107" name="hall">107</option>
+                <option value="108" name="hall">108</option>
+                <option value="PR3" name="hall">Praktikum 3</option>
+                <option value="PR4" name="hall">Praktikum 4</option>
+                <option value="PR5" name="hall">Praktikum 5</option>
 
             </select>
 
@@ -65,8 +65,8 @@
 
         </p>
         <!--<input type="radio" name="floor" value="0" /> Prizemlje <br />
-        <input type="radio" name="floor" value="1" /> Prvi kat <br />
-        <button type="sumbit" id="reserve" name="reserve">Rezerviraj</button>   <br/>--zasad ne
+        <input type="radio" name="floor" value="1" /> Prvi kat <br />-->
+        <button type="sumbit" id="reserve" name="reserve">Rezerviraj</button>   <br/>
         
         <!--<canvas width="1000" height="500" id="cnv" style="border: solid 1px;"></canvas>  nisam uspila zasad-->
 
