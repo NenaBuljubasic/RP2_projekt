@@ -46,8 +46,14 @@
                 var my_date = temp.getFullYear() + "-" +  (temp.getMonth()+1) + "-" + temp.getDate();
                 //console.log("Ovo je floor: " + floor);
                 //console.log("Ovo je my_date:" + my_date);
+                var p = window.location.pathname;
+                var res =  p.split("/");
+                var path = "/" + res[1];
+                alert(path);
                 $.ajax({
-                    url:"/RP2/model/guest.php", //PAZITI Hardkodiran put - nije mi radilo drugačije
+                    //url:"/RP2_projekt/model/guest.php", //PAZITI Hardkodiran put - nije mi radilo drugačije
+                    //url:window.location.pathname+"/model/guest.php",
+                    url:path + "/model/guest.php",
                     data:{
                         floor:floor,
                         my_date:my_date
