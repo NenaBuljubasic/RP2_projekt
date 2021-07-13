@@ -70,9 +70,9 @@ public function administrator()
     if($ps->checkAdmin($id)===true && $id!==false && $ps->checkLogin($_POST["username"],$_POST["password"])!=false)
 	{
 		$arr1=array();
-		$arr1=$ps->getAllUsersReservations($_SESSION['user_id'])[0];
+		$arr1=$ps->getAllUsersReservations()[0];
 		$arr2=array();
-		$arr2=$ps->getAllUsersReservations($_SESSION['user_id'])[1];
+		$arr2=$ps->getAllUsersReservations()[1];
 		
 		require_once __DIR__.'/../view/show_lecture_halls_index.php';
 		//require_once __DIR__.'/../view/administrator_site_index.php';
