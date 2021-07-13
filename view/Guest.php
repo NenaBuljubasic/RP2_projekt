@@ -47,7 +47,7 @@
                 //console.log("Ovo je floor: " + floor);
                 //console.log("Ovo je my_date:" + my_date);
                 $.ajax({
-                    url:"/PR/model/guest.php", //PAZITI Hardkodiran put - nije mi radilo drugačije
+                    url:"/RP2/model/guest.php", //PAZITI Hardkodiran put - nije mi radilo drugačije
                     data:{
                         floor:floor,
                         my_date:my_date
