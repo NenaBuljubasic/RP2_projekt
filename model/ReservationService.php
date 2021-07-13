@@ -85,8 +85,11 @@ class ReservationService{
         $arr=$this->getAllUsers();
 
         foreach($arr as $row)
-            if($row->username === $username and $row->password_hash === $password)
-                return $row->id;
+            if($row->username === $username)///provjeri lozinku
+                    {
+                     if(password_verify($password,$row->password_hash))
+                                return true;
+                    }
 
 
         return false;

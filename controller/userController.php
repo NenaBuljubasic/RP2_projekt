@@ -14,7 +14,7 @@ public function login()
 	  if(!isset($_SESSION["user_id"]))
 		{
 			$_SESSION["username"] = $_POST["username"];
-	     	$_SESSION["password"] = $_POST["password"];
+	     	
 		}
 	  $provjera = $ps->checkLogin( $_SESSION["username"],$_SESSION["password"]);
 		
