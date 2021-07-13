@@ -11,27 +11,63 @@ class UserController extends BaseController{
 public function login()
 	 { 
 	  $ps = new ReservationService();
-	  if(!isset($_SESSION["user_id"]))
-		{
-			$_SESSION["username"] = $_POST["username"];
-		
-			$provjera = $ps->checkLogin( $_SESSION["username"],$_POST["password"]);
-			if($provjera===false) require_once __DIR__.'/../view/try_again.php'; //prebaci me nazad u formu za ulogiravanje
-		    else $_SESSION["user_id"]=$provjera;
-		}
 	  
-		
-			    
-				$arr1=array();
-				$arr1=$ps->getUsersReservations($_SESSION("user_id"))[0];
-				$arr2=array();
-				$arr2=$ps->getUsersReservations($_SESSION("user_id"))[1];
-				
-				require_once __DIR__.'/../view/show_lecture_halls_index.php';
-            
+	if(!isset($_SESSION["user_id"]))
+			{
+				$_SESSION["username"] = $_POST["username"];
 			
-	 }
-		
+				$provjera = $ps->checkLogin( $_SESSION["username"],$_POST["password"]);
+				if($provjera===false) require_once __DIR__.'/../view/try_again.php'; //prebaci me nazad u formu za ulogiravanje
+				//else $_SESSION["user_id"]=$provjera;
+			}
+			
+			if($ps->checkAdmin($_SESSION["user_id"]) === true)
+			{
+					$arr1=array();
+					$arr1=$ps->getAllUsersReservations()[0];
+					$arr2=array();
+					$arr2=$ps->getAllUsersReservations()[1];
+					
+					require_once __DIR__.'/../view/show_lecture_halls_index.php';
+
+			}
+			else
+			{
+				$arr1=array();
+				$arr1=$ps->getUsersReservations($_SESSION['user_id'])[0];
+				$arr2=array();
+				$arr2=$ps->getUsersReservations($_SESSION['user_id'])[1];
+			}
+						
+			
+			
+			require_once __DIR__.'/../view/show_lecture_halls_index.php';
+					
+					
+			}
+		public function show()
+		{
+			$ps = new ReservationService();
+			if($ps->checkAdmin($_SESSION["user_id"]) === true)
+			{
+					$arr1=array();
+					$arr1=$ps->getAllUsersReservations()[0];
+					$arr2=array();
+					$arr2=$ps->getAllUsersReservations()[1];
+					
+					
+			}
+			else
+			{
+				$arr1=array();
+				$arr1=$ps->getUsersReservations($_SESSION['user_id'])[0];
+				$arr2=array();
+				$arr2=$ps->getUsersReservations($_SESSION['user_id'])[1];
+				
+			}
+			require_once __DIR__.'/../view/show_lecture_halls_index.php';
+		}
+			
 	public function signup()
       {
         $ps = new ReservationService();
@@ -51,7 +87,7 @@ public function login()
 
    public function logout()
        {
-	       session_unset();
+			session_destroy();
 		   require_once __DIR__.'/../view/site_index.php';
          }
 
