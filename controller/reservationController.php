@@ -29,7 +29,7 @@ class ReservationController extends BaseController{
         {
             $pr = $rs->newReservation($_POST['start'],$_POST['end'],$_POST['hall'], $user , $_POST['date'] );//morat će nešto slat                        
             if($pr === -1)
-                $this->registry->template->show( 'r_index' );// ovo promijenit
+                //$this->registry->template->show( 'r_index' );// ovo promijenit
             
             
         }
