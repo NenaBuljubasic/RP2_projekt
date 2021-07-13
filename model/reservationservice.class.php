@@ -1,9 +1,5 @@
 <?php
 
-require_once __DIR__ . '/../app/database/db.class.php';
-require_once __DIR__ . '/user.class.php';
-require_once __DIR__ . '/lecture_hall.class.php';
-require_once __DIR__ . '/reservation.class.php';
 
 class ReservationService{
 
@@ -102,10 +98,11 @@ class ReservationService{
             if($row->username === $username)///provjeri lozinku
                     {
                     // if(password_verify($password,$row->password_hash))
-                                return $row->id;
+                                $_SESSION['user_id']=$row->id;
+                                return true;
                     }
 
-
+	//$_SESSION['user_id']=$row->id;
         return false;
     }   
     
