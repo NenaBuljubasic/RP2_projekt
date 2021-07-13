@@ -18,6 +18,12 @@ public function index()
         require_once __DIR__.'/../view/administrator_index.php';
     }
     
+    else if(isset($_POST["nolog"]))
+    {
+        require_once __DIR__.'/../view/Guest.php';
+    }
+    
+    
 }
 
 
