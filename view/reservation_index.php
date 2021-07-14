@@ -88,9 +88,8 @@
     } );
     $(document).ready(function(){  
         $("input[name='floor']").change(draw);   
-        $("#cnv").on('click', info);        
+        $("#cnv").on('click', info);      
     });
-
     var brojac = 0;
     var current_floor = -1; 
     var canvas = $( "#cnv" ).get(0);

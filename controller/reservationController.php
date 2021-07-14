@@ -1,6 +1,5 @@
 <?php
 
-
 class ReservationController extends BaseController{
     public function index() 
 	{
@@ -18,19 +17,21 @@ class ReservationController extends BaseController{
             }
      header('Location:index.php?rt=user/show');
    }
+
     public function reserve()
     {
         $this->registry->template->show( 'reservation_index' );
         $rs=new ReservationService();
         
         $user = $_SESSION['user_id'];
-        if(isset($_POST['reserve']))
+        if(isset($_POST['reserve']) && isset($_POST['start']) && isset($_POST['end']) && isset($_POST['hall']) && ($_POST['date'] != ""))
         {
             $pr = $rs->newReservation($_POST['start'],$_POST['end'],$_POST['hall'], $user , $_POST['date'] );//morat će nešto slat                        
-           
+
         }
 
     }
+    
     
 }
 
