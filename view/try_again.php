@@ -2,7 +2,7 @@
 
 <div id="failure">Neuspješna prijava</div>
 
-<form action="<?php echo __SITE_URL . '/index.php?rt=login'?>"  method="POST">
+<form action="<?php echo __SITE_URL . '/index.php?rt=user'?>"  method="POST">
     <label for="">Za ponovni pokusaj stisnuti gumb</label>
     <input type="submit" value="Ponovni pokusaj"/>
 </form>

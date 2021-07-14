@@ -11,7 +11,7 @@
                 echo "<th>Prostorije</th>";
                 echo "<th>Pocetak rezervacije</th>";
                 echo "<th>Kraj rezervacije</th>";
-                echo "<th></th>";
+                echo "<th>Poništi rezervaciju</th>";
                 echo "</tr>";
             if(sizeof($arr1))
                 for($i = 0;$i < sizeof($arr1); $i++) // sta je arr1

@@ -13,7 +13,7 @@ public function login()
 	  $ps = new ReservationService();
 	  
 	if(!isset($_SESSION["user_id"]))
-			{ echo "da";
+			{ 
 				$_SESSION["username"] = $_POST["username"];
 			
 				$provjera = $ps->checkLogin( $_SESSION["username"],$_POST["password"]);
