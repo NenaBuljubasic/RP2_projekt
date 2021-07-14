@@ -22,6 +22,9 @@ table{
 	/*margin-left: 300px;*/
 	width:60%;
 }
+canvas{
+	/*display: none;*/
+}
 button {
   background-color: #1abc9c; /* Green */
   border: none;
@@ -75,6 +78,9 @@ input {
   
   float:center;  
   resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+#radio{
+	width: auto;
 }
 #datepicker {
     width:10%

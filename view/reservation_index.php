@@ -3,7 +3,7 @@
 <form class="reservation" method="post" action="<?php echo __SITE_URL . '/index.php?rt=reservation/reserve'?>">
     <div id="wrapper">
         Datum: <input type="text" id="datepicker" name="date">
-        <br />
+
             <label for="start">Od:</label>
 
             <select name="start" id="start"> 
@@ -38,7 +38,7 @@
                 <option value="20" name="20:00">20:00</option>
 
             </select>
-        <br/>
+    
             <label for="hall">Prostorija:</label>
 
             <select name="hall" id="hall">
@@ -65,12 +65,16 @@
 
             
             <br/>
-
-        <!--<input type="radio" name="floor" value="0" /> Prizemlje <br />
-        <input type="radio" name="floor" value="1" /> Prvi kat <br />-->
-        <button type="sumbit" id="reserve" name="reserve">Rezerviraj</button>   <br/>
+        <input type="radio" name="floor" value="0" id="radio"/> Prizemlje <br />
+        <input type="radio" name="floor" value="1" id="radio"/> Prvi kat <br />
+     
         
-        <!--<canvas width="1000" height="500" id="cnv" style="border: solid 1px;"></canvas>  nisam uspila zasad-->
+        
+        <canvas width="1000" height="500" id="cnv" style="border: solid 1px;"></canvas>
+        <br/>
+        <button type="sumbit" id="reserve" name="reserve">Rezerviraj</button> 
+        <button type="sumbit" id="halls" name="halls">Pogledaj učionice</button>   
+        
 
 	</ul>
         <br>       
@@ -81,12 +85,124 @@
 <script>
     $( function() {
     $( "#datepicker" ).datepicker();
-  } );
-$(document).ready(function(){                
+    } );
+    $(document).ready(function(){  
+        $("input[name='floor']").change(draw);   
+        $("#cnv").on('click', info);
+
+        
+    });
+    var brojac = 0;
+    var current_floor = -1; 
+    var canvas = $( "#cnv" ).get(0);
+    var ctx = canvas.getContext( "2d" );
+    
+    function info()
+    {
+        
+        if(brojac > 0)
+            $( "#balon" ).remove();
+        brojac = 1;
+        
+        var div = $( "<div></div>" );
+        var rect = this.getBoundingClientRect();    
+        var x = event.clientX - rect.left, y = event.clientY - rect.top;
+        
+        var odabrana = 0;
+
+        if(! $("input[name=floor]").is(':checked') )
+            return;
+        var kat = $('input[name=floor]:checked').val()
+        
+
+        $.ajax(
+        {
+            url: location.protocol + "//" + location.hostname  + location.pathname.replace('index.php', '') + '/app/floors.php',
+            data: { floor:kat },
+            dataType: "json",
+            type:"POST",
+            success: function( data )
+            {
+                //alert("hello");
+                for(var i = 0; i < data.floor.length; i++)
+                {
+                    
+                    if( x >= data.floor[i]['koordinata_x'] && x <= data.floor[i]['koordinata_x']+data.floor[i]['duljina'])
+                    {
+                        //alert("x valja");
+                        if( y >= data.floor[i]['koordinata_y'] && y <= data.floor[i]['koordinata_y']+data.floor[i]['sirina'])
+                        {
+                            odabrana = data.floor[i]['prostorija']; //sad iz baze proÄŤitat kapacitet!
+                            //alert("Ĺ˝elite li");
+                            div
+                                .prop( "id", "balon" )
+                                .css(
+                                {
+                                    "position": "absolute",
+                                    "left": x + rect.left + 20,
+                                    "top": y + rect.top + 20,
+                                    "border": "solid 1px",
+                                    "background-color": "rgb(245, 245, 255)",
+                                    "padding": "5px"
+                                } )
+                                .html(
+                                    "Kapacitet prostorije " + odabrana //gore poÄŤitat koordinate i lipo vratit kapacitet toÄŤan
+                                );
+
+                            $( "body" ).append( div );
+                            return;
+                        }
+                    }
+                }
                 
-    
-    
-});
+                
+                
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(xhr.status);
+                alert(thrownError);
+            }
+        }
+        );
+                    
+    }
+
+    function draw()
+    {
+        if(brojac > 0)
+            $( "#balon" ).remove();
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        var kat = $('input[name=floor]:checked').val();
+        /*if( (kat != 0) || (kat != 1))
+            kat = 0;*/
+        current_floor = kat;
+
+
+        $.ajax(
+        {
+            url: location.protocol + "//" + location.hostname  + location.pathname.replace('index.php', '') + '/app/floors.php',
+            type:"POST",
+            data: { floor:kat },
+            //dataType: "json",
+            success: function( data )
+            {
+                //console.log(data);
+                //console.log( data.floor.length);
+                for(var i = 0; i < data.floor.length; i++)
+                {
+                    ctx.beginPath();
+                    ctx.rect(data.floor[i]['koordinata_x'], data.floor[i]['koordinata_y'], data.floor[i]['duljina'], data.floor[i]['sirina']);
+                    ctx.stroke(); 
+                    ctx.fillText(data.floor[i]['prostorija'],data.floor[i]['koordinata_x']+(data.floor[i]['duljina']/2),data.floor[i]['koordinata_y']+(data.floor[i]['sirina']/2));
+                }
+                
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(xhr.status);
+                alert(thrownError);
+            }
+        } );
+    }
      
 </script>
 
