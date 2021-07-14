@@ -27,9 +27,9 @@
     }
 
     if(!isset($_POST['floor']))
-        sendErrorAndExit("You must select floor. Please, try again!");
+        sendErrorAndExit("Morate odabrati kat. Pokušajte ponovo!");
     if(!isset($_POST['my_date']))
-        sendErrorAndExit("You have to select date from datepicker. Please, try again!");
+        sendErrorAndExit("Morate odabrati datum. Pokušajte ponovo!");
     
     $floor = $_POST['floor'];
     $my_date = $_POST['my_date'];

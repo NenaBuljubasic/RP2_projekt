@@ -2,7 +2,7 @@
 $floors = [ 
     [//prizemlje, prostorije
         ['koordinata_x'=>0, 'koordinata_y' => 0, 'duljina' => 100, 'sirina' => 100, 'prostorija' => "001"], //ovo je npr za 1.kat sve prostorije
-        ['koordinata_x'=>850, 'koordinata_y' => 0, 'duljina' => 150, 'sirina' => 100, 'prostorija' => "Praktikum 2"],
+        ['koordinata_x'=>850, 'koordinata_y' => 0, 'duljina' => 150, 'sirina' => 100, 'prostorija' => "PRAKTIKUM 2"],
         ['koordinata_x'=>100, 'koordinata_y' => 0, 'duljina' => 750, 'sirina' => 100, 'prostorija' => "Ostalo"],
         ['koordinata_x'=>0, 'koordinata_y' => 300, 'duljina' => 100, 'sirina' => 100, 'prostorija' => "006"],
         ['koordinata_x'=>100, 'koordinata_y' => 300, 'duljina' => 150, 'sirina' => 100, 'prostorija' => "Ostalo"],
@@ -18,9 +18,9 @@ $floors = [
         ['koordinata_x'=>200, 'koordinata_y' => 0, 'duljina' => 100, 'sirina' => 100, 'prostorija' => "103"],
         ['koordinata_x'=>300, 'koordinata_y' => 0, 'duljina' => 100, 'sirina' => 100, 'prostorija' => "104"],
         ['koordinata_x'=>400, 'koordinata_y' => 0, 'duljina' => 100, 'sirina' => 100, 'prostorija' => "105"],
-        ['koordinata_x'=>500, 'koordinata_y' => 0, 'duljina' => 200, 'sirina' => 100, 'prostorija' => "Praktikum 3"],
-        ['koordinata_x'=>700, 'koordinata_y' => 0, 'duljina' => 150, 'sirina' => 100, 'prostorija' => "Praktikum 4"],
-        ['koordinata_x'=>850, 'koordinata_y' => 0, 'duljina' => 150, 'sirina' => 100, 'prostorija' => "Praktikum 5"],
+        ['koordinata_x'=>500, 'koordinata_y' => 0, 'duljina' => 200, 'sirina' => 100, 'prostorija' => "PRAKTIKUM 3"],
+        ['koordinata_x'=>700, 'koordinata_y' => 0, 'duljina' => 150, 'sirina' => 100, 'prostorija' => "PRAKTIKUM 4"],
+        ['koordinata_x'=>850, 'koordinata_y' => 0, 'duljina' => 150, 'sirina' => 100, 'prostorija' => "PRAKTIKUM 5"],
         ['koordinata_x'=>0, 'koordinata_y' => 300, 'duljina' => 100, 'sirina' => 100, 'prostorija' => "006"],
         ['koordinata_x'=>100, 'koordinata_y' => 300, 'duljina' => 150, 'sirina' => 100, 'prostorija' => "Ostalo"],
         ['koordinata_x'=>250, 'koordinata_y' => 350, 'duljina' => 150, 'sirina' => 150, 'prostorija' => "005"],
@@ -41,6 +41,7 @@ function sendJSONandExit( $message )
 }
 
 $floor = $_POST['floor'];
+
 
 $message = [];
 $message[ 'floor' ] = $floors[$floor];

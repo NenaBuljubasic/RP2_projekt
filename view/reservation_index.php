@@ -1,6 +1,6 @@
 <?php require_once __SITE_PATH . '/view/_header1.php'; ?>
 <?php require_once __SITE_PATH . '/view/toolbar_index.php'; ?>
-<form class="reservation" method="post" action="<?php echo __SITE_URL . '/index.php?rt=reservation/reserve'?>">
+<form class="reservation" method="post" action="<?php echo __SITE_URL . '/index.php?rt=reservation/reserve'?>" >
     <div id="wrapper">
         Datum: <input type="text" id="datepicker" name="date">
 
@@ -88,10 +88,9 @@
     } );
     $(document).ready(function(){  
         $("input[name='floor']").change(draw);   
-        $("#cnv").on('click', info);
-
-        
+        $("#cnv").on('click', info);        
     });
+
     var brojac = 0;
     var current_floor = -1; 
     var canvas = $( "#cnv" ).get(0);
@@ -112,48 +111,40 @@
 
         if(! $("input[name=floor]").is(':checked') )
             return;
-        var kat = $('input[name=floor]:checked').val()
+        var kat = $('input[name=floor]:checked').val();
         
-
+        
         $.ajax(
         {
-            url: location.protocol + "//" + location.hostname  + location.pathname.replace('index.php', '') + '/app/floors.php',
-            data: { floor:kat },
-            dataType: "json",
+            url: location.protocol + "//" + location.hostname  + location.pathname.replace('index.php', '') + '/model/floors1.php',
+            data: { floor:kat , x:x, y:y},
+            //dataType: "json",
             type:"POST",
             success: function( data )
             {
-                //alert("hello");
-                for(var i = 0; i < data.floor.length; i++)
-                {
-                    
-                    if( x >= data.floor[i]['koordinata_x'] && x <= data.floor[i]['koordinata_x']+data.floor[i]['duljina'])
+                console.log(data);
+                clicked = data.hall; //sad iz baze proÄŤitat kapacitet!
+                capacity = data.capacity;
+                //alert("Ĺ˝elite li");
+                div
+                    .prop( "id", "balon" )
+                    .css(
                     {
-                        //alert("x valja");
-                        if( y >= data.floor[i]['koordinata_y'] && y <= data.floor[i]['koordinata_y']+data.floor[i]['sirina'])
-                        {
-                            odabrana = data.floor[i]['prostorija']; //sad iz baze proÄŤitat kapacitet!
-                            //alert("Ĺ˝elite li");
-                            div
-                                .prop( "id", "balon" )
-                                .css(
-                                {
-                                    "position": "absolute",
-                                    "left": x + rect.left + 20,
-                                    "top": y + rect.top + 20,
-                                    "border": "solid 1px",
-                                    "background-color": "rgb(245, 245, 255)",
-                                    "padding": "5px"
-                                } )
-                                .html(
-                                    "Kapacitet prostorije " + odabrana //gore poÄŤitat koordinate i lipo vratit kapacitet toÄŤan
-                                );
+                        "position": "absolute",
+                        "left": x + rect.left + 20,
+                        "top": y + rect.top + 20,
+                        "border": "solid 1px",
+                        "background-color": "rgb(245, 245, 255)",
+                        "padding": "5px"
+                    } )
+                    .html(
+                        "Kapacitet prostorije " + clicked + ": " + capacity //gore poÄŤitat koordinate i lipo vratit kapacitet toÄŤan
+                    );
 
-                            $( "body" ).append( div );
-                            return;
-                        }
-                    }
-                }
+                $( "body" ).append( div );
+                return;
+                        
+                
                 
                 
                 
@@ -164,7 +155,7 @@
             }
         }
         );
-                    
+               
     }
 
     function draw()
@@ -186,7 +177,7 @@
             //dataType: "json",
             success: function( data )
             {
-                //console.log(data);
+                console.log(data);
                 //console.log( data.floor.length);
                 for(var i = 0; i < data.floor.length; i++)
                 {
