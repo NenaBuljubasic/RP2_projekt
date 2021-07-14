@@ -1,8 +1,9 @@
 <?php require_once __SITE_PATH . '/view/_header1.php'; ?>
 <?php require_once __SITE_PATH . '/view/toolbar_index.php'; ?>
-    <form class="reservation" method="post" action="<?php echo __SITE_URL . '/index.php?rt=reservation/reserve'?>">
-        <p>Datum: <input type="text" id="datepicker" name="date"></p>
-        <p>
+<form class="reservation" method="post" action="<?php echo __SITE_URL . '/index.php?rt=reservation/reserve'?>">
+    <div id="wrapper">
+        Datum: <input type="text" id="datepicker" name="date">
+        <br />
             <label for="start">Od:</label>
 
             <select name="start" id="start"> 
@@ -37,7 +38,7 @@
                 <option value="20" name="20:00">20:00</option>
 
             </select>
-
+        <br/>
             <label for="hall">Prostorija:</label>
 
             <select name="hall" id="hall">
@@ -63,8 +64,8 @@
 
 
             
+            <br/>
 
-        </p>
         <!--<input type="radio" name="floor" value="0" /> Prizemlje <br />
         <input type="radio" name="floor" value="1" /> Prvi kat <br />-->
         <button type="sumbit" id="reserve" name="reserve">Rezerviraj</button>   <br/>
@@ -72,8 +73,11 @@
         <!--<canvas width="1000" height="500" id="cnv" style="border: solid 1px;"></canvas>  nisam uspila zasad-->
 
 	</ul>
-        <br>
-    </form>
+        <br>       
+    
+
+</div>  
+</form>
 <script>
     $( function() {
     $( "#datepicker" ).datepicker();
@@ -83,14 +87,7 @@ $(document).ready(function(){
     
     
 });
-
-        
-
-
-
- 
-
-
+     
 </script>
 
            

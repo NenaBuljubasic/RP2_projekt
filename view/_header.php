@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf8">
 	<title>Rezerviraj u�ionicu</title>
-	<link rel="stylesheet" href="<?php echo __SITE_URL;?>/css/style.scss">
+	<link rel="stylesheet" href="<?php echo __SITE_URL;?>/css/style.css">
 	<style> th, td { border: solid 1px; }</style>
 </head>
 <body>

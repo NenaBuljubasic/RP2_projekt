@@ -21,9 +21,9 @@
                 <option value="first_floor" name="first_floor">First floor</option>
             </select>
         </div>
-        <p>Date: 
+        Date: 
             <input type="text" id="my_date_picker">
-        </p>
+ 
         <button id="show_calendar">Show calendar</button>
 
         <div id="calendar"></div>
