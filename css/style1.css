@@ -1,0 +1,283 @@
+td,th {
+	border:solid 1px;
+
+}
+
+th a {
+   width: 100%;
+}
+ul a{
+	width: 40%;
+	display: block;
+}
+ul{
+	list-style-type:none;	
+	padding: 0;
+	
+}
+#tablica{
+	border: solid 3px;
+	font-weight: bold;
+	/*color:#74665d;*/
+	margin-top: 30px;
+	/*margin-left: 300px;*/
+	width:60%;
+}
+canvas{
+	/*display: none;*/
+}
+button {
+  background-color: #1abc9c; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius:4px;
+  font-family: 'Cherry Swash', cursive;
+  align-self: center;
+
+}
+body{
+	background-repeat: repeat-y;
+	background-position: right top;
+	background-attachment: fixed;
+	margin-left: 300px;
+	
+  	
+  	/*color:#ffecdb;*/
+	/*color:white;*/
+	/*margin-bottom: 80px;*/
+	overflow-x:hidden;
+	font-size: 12px;
+	font-family: 'Cherry Swash', cursive;
+	/*background: #2c3e50;*/
+	background-color: whitesmoke;
+	color:#2c3e50;
+
+
+
+}
+body p{
+	color:#74665d;
+	font-weight: bold;
+	margin-left: 20px;
+}
+body iframe{
+	margin-left: 20px;
+}
+input {
+  width: 50%; /* Full width */
+  padding: 12px; /* Some padding */ 
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  
+  float:center;  
+  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+#radio{
+	width: auto;
+}
+#datepicker {
+    width:10%
+}
+#my_date_picker{
+    width:10%;
+}
+header a{
+	color:pink;
+	margin-left: 10px;
+
+}
+header{
+	margin: 0px;
+	background-color: rgba(176,159,141,0.9);
+	position: sticky;
+	padding: 10px;
+	top:0;/*potrebni za sticky*/
+	z-index: 1;
+	width: 100%;
+	float: left;
+	
+
+}
+html{
+	position: relative;
+	min-height: 100%
+}
+footer{
+	background-color: #74665d;
+	height: 90px;
+	text-align: center;
+	position:absolute;	
+	padding: 0px;
+	bottom:0px;
+	width: 100%;
+	margin-top:40px;
+}
+.wrapper {	
+	
+	margin-top: 20px;
+	margin-left:600px;
+	width: 50%;
+
+	padding: 10px;
+}
+.wrapper1 {	
+	
+	margin-top: 20px;
+	margin-left:450px;
+	width: 50%;
+
+	padding: 10px;
+}
+
+
+
+
+.header_menu{
+	width:33%;
+  float: left;
+}
+input:focus{ /*kad krenemo upisivat u formu promijeni se boja*/
+	background-color:lightgrey;
+} 
+
+form li{
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+form p{
+	margin-left: 10px;
+	font-weight: bold;
+}
+nav {
+	margin: 27px auto 0;
+
+	position: relative;
+	width: 600px;
+	height: 50px;
+	/*background-color: #34495e;*/
+	background-color:white;
+	color:#2c3e50;
+	border-radius: 8px;
+	font-size: 0;
+}
+nav a {
+	line-height: 50px;
+	height: 100%;
+	width:60px;
+	font-size: 15px;
+	display: inline-block;
+	position: relative;
+	z-index: 1;
+	text-decoration: none;
+	text-transform: uppercase;
+	text-align: center;
+	color:#2c3e50;
+	font-family: 'Cherry Swash', cursive;
+
+	cursor: pointer;
+}
+nav .animation {
+	position: absolute;
+	height: 100%;
+	top: 0;
+	z-index: 0;
+	transition: all .5s ease 0s;
+	border-radius: 8px;
+}
+a:nth-child(1) {
+	width: 200px;
+}
+a:nth-child(2) {
+	width: 200px;
+}
+a:nth-child(3) {
+	width: 200px;
+}
+a:nth-child(4) {
+	width: 200px;
+}
+a:nth-child(5) {
+	width: 200px;
+}
+nav a:nth-child(1):hover{
+	width: 200px;
+	left: 0;
+	background-color: #1abc9c;
+	border-radius: 8px;
+
+}
+nav  a:nth-child(2):hover {
+	width: 200px;
+	left: 0;
+	background-color: #1abc9c;
+	border-radius: 8px;
+}
+nav a:nth-child(3):hover{
+	width: 200px;
+	left: 0;
+	background-color: #1abc9c;
+	border-radius: 8px;
+}
+nav a:nth-child(4):hover{
+	width: 200px;
+	left: 0;
+	background-color: #1abc9c;
+	border-radius: 8px;
+}
+nav  a:nth-child(5):hover{
+	width: 200px;
+	left: 0;
+	background-color: #1abc9c;
+	border-radius: 8px;
+}
+title{
+	color:pink;
+}
+
+h1 {
+	text-align: center;
+	margin: 40px 0 40px;
+	text-align: center;
+	font-size: 30px;
+	color: #dfe6e4;
+	text-shadow: 2px 2px 4px #000000;
+	font-family: 'Cherry Swash', cursive;
+}
+
+p {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    color: #ecf0f1;
+    font-family: 'Cherry Swash',cursive;
+    font-size: 16px;
+}
+
+span {
+    color: #2BD6B4;
+}
+
+#container {
+    /*height: 200px;*/
+    position: absolute;
+    
+   
+  }
+  
+  #center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /*-ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);*/
+  }

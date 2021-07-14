@@ -9,7 +9,7 @@
     <link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css' rel='stylesheet'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>	
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" ></script>
-    
+    <link rel="stylesheet" href="<?php echo __SITE_URL;?>/css/style1.css">
 
 </head>
 <body>

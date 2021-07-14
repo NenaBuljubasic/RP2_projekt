@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf8">
 	
-	<link rel="stylesheet" href="<?php echo __SITE_URL;?>/css/style.css"> <!--ovo nis-->
+	<link rel="stylesheet" href="<?php echo __SITE_URL;?>/css/style.css"> 
 	<link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 	<meta name="description" content="">
@@ -16,8 +16,6 @@
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
-	<h1>
-	    Rezervacija prostorija na fakultetu
-	</h1>
+
 
 
