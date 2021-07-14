@@ -27,9 +27,9 @@
                     echo "<td>";
                     echo $arr2[$i]->reservation_end;
                     echo "</td>";
-                    echo "<td>" ?>
+                    echo "<td class='check'>" ?>
                     
-                    <input type="checkbox" name="<?php echo $arr2[$i]->id_reservation; ?>" value="">     
+                    <input type="checkbox" name="<?php echo $arr2[$i]->id_reservation; ?>" value="">   
                     <?php  echo  "</td>";                
                 echo  "</tr>";  
                 }

@@ -1,4 +1,4 @@
-<?php require_once __SITE_PATH . '/view/_header.php'; ?>
+<?php require_once __SITE_PATH . '/view/_header1.php'; ?>
 
 <div id="failure">Neuspješna prijava</div>
 

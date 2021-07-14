@@ -1,5 +1,5 @@
 <?php require_once __SITE_PATH . '/view/_header.php'; ?>
-
+<!--
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,18 +13,19 @@
 
 </head>
 <body>
+-->
     <h1>Raspored rezervacija po prostorijama</h1>
              <div class="floors">
-            <select name="floor" id="floor">
+            Kat: <select name="floor" id="floor">
                 <option value="ground_floor" name="ground_floor">Prizemlje</option>
                 <option value="first_floor" name="first_floor">Prvi kat</option>
             </select>
-        </div>
+        <br>
         Datum: 
             <input type="text" id="my_date_picker">
  
         <button id="show_calendar">Pokaži kalendar</button>
-
+        </div>
         <div id="calendar"></div>
 <script>
     $(document).ready(function(){
@@ -73,7 +74,7 @@
 
         crtaj_kalendar = function(data){
       
-            var tbl = $("<table class='tblCalendar style='text-align: center;margin-left: auto;margin-right: auto;'></table>");
+            var tbl = $("<table class='tablica'></table>");
 
             if($('#floor').val() === 'ground_floor'){
                 tbl.append($('<th>Time</th>'));
