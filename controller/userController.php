@@ -108,7 +108,8 @@ public function unlogged()
 	  //$ps->$_POST["row"];
    }
 public function administrator()
-   { $ps=new ReservationService();
+   { 
+	   $ps=new ReservationService();
 	 $id=$ps->getUserId($_POST["username"]);
 	 
 
@@ -122,6 +123,12 @@ public function administrator()
 		
 		require_once __DIR__.'/../view/show_lecture_halls_index.php';
 		//require_once __DIR__.'/../view/administrator_site_index.php';
+	}
+	else
+	{
+		$_POST["username"] = NULL;
+		$_POST["password"] = NULL;
+		require_once __DIR__.'/../view/administrator_index.php';
 	}
            
    }
