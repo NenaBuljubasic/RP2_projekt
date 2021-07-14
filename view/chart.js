@@ -16,7 +16,7 @@
             //console.log("Ovo je floor: " + floor);
             //console.log("Ovo je my_date:" + my_date);
             $.ajax({
-                url:"/rp2/model/gost.php", //PAZITI na ovo ako ćemo mijenjati mjesto
+                url:location.protocol + "//" + location.hostname  + location.pathname.replace('index.php', '') + 'app/guest.php', //PAZITI na ovo ako ćemo mijenjati mjesto
                 data:{
                     floor:floor,
                     my_date:my_date

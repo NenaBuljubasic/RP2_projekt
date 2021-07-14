@@ -45,10 +45,10 @@
             else{
                 var my_date = temp.getFullYear() + "-" +  (temp.getMonth()+1) + "-" + temp.getDate();
                 
-                
+              alert(location.protocol + "//" + location.hostname  + location.pathname.replace('index.php', '') + 'model/guest.php');  
                 $.ajax({
                     
-                    url:location.protocol + "//" + location.hostname  + location.pathname.replace('index.php', '') + 'app/guest.php',
+                    url:location.protocol + "//" + location.hostname  + location.pathname.replace('index.php', '') + 'model/guest.php',
                     data:{
                         floor:floor,
                         my_date:my_date
@@ -61,6 +61,7 @@
                         {
                             //console.log(data);
                             //console.log(data);
+                            console.log(data);
                             crtaj_kalendar((data));
                         }
                     },
