@@ -39,7 +39,9 @@
     //debug_to_console("Ovo je u gost.php");
     //debug_to_console(gettype($my_date));
         
-    
+    //$rs = new ReservationService();
+    //$tempic = $rs -> getReservationsByDate($floor, $my_date);
+
         $tempic = getReservationsByDate($floor, $my_date);
         //debug_to_console("OVO JE TIP: " . gettype($tempic));
         //$message["rezervacije"] = $tempic;
@@ -47,7 +49,7 @@
         sendJSONandExit($message);
 
     //Dohvati iz baze podatke - pazi da kat zgrade i datum odgovaraju
-
+    
     function getReservationsByDate($floor, $my_date)
     {
         try
