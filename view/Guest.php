@@ -44,16 +44,11 @@
                 alert("You have to select a date!");
             else{
                 var my_date = temp.getFullYear() + "-" +  (temp.getMonth()+1) + "-" + temp.getDate();
-                //console.log("Ovo je floor: " + floor);
-                //console.log("Ovo je my_date:" + my_date);
                 
-                var p = window.location.pathname;
-                var res =  p.split("/");
-                var path = "/" + res[1];
                 
                 $.ajax({
-                    //url:"/RP2_projekt/model/guest.php", //PAZITI Hardkodiran put - nije mi radilo drugačije
-                    url:path + "/model/guest.php",
+                    
+                    url:location.protocol + "//" + location.hostname  + location.pathname.replace('index.php', '') + 'app/guest.php',
                     data:{
                         floor:floor,
                         my_date:my_date
