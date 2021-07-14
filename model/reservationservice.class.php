@@ -273,8 +273,8 @@ function addNewUser($username,$password_hash,$email)
             exit( 'PDO error ' . $e->getMessage() ); 
         }
     }
-
-
     
+
+
 }
 ?>
