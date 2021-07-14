@@ -6,17 +6,14 @@
 class UserController extends BaseController{
   public function index() 
 	{
-		if(isset($_SESSION["username"]))
-			session_destroy();
 		$this->registry->template->show( 'login_index' );
 	}
 public function login()//provjera je li korisnik u bazi
 	 { 
-		if(isset($_SESSION["username"]))
-			session_destroy();
-	  $ps = new ReservationService();
+		
+	 	$ps = new ReservationService();
 	  
-	if(!isset($_SESSION["user_id"]))
+		if(!isset($_SESSION["user_id"]))
 			{ 
 				$_SESSION["username"] = $_POST["username"];
 			
@@ -24,7 +21,10 @@ public function login()//provjera je li korisnik u bazi
 				if($provjera===false) {require_once __DIR__.'/../view/try_again.php'; //prebaci me nazad u formu za ulogiravanje
 					                   exit;}
 				//else $_SESSION["user_id"]=$provjera;
+				
+
 			}
+		
 			
 			if($ps->checkAdmin($_SESSION["user_id"]) === true)
 			{
@@ -115,8 +115,7 @@ public function unlogged()
    }
 public function administrator()
    { 
-	if(isset($_SESSION["username"]))
-		$_SESSION["username"] = NULL;
+
 	   $ps=new ReservationService();
 	 $id=$ps->getUserId($_POST["username"]);
 	 
