@@ -56,10 +56,8 @@
 
     for($i = 0; $i < count($floors[$floor]); $i++)
     {
-        
         if( $x >= $floors[$floor][$i]['koordinata_x'] && $x <= $floors[$floor][$i]['koordinata_x']+$floors[$floor][$i]['duljina'])
         {
-            //alert("x valja");
             if( $y >= $floors[$floor][$i]['koordinata_y'] && $y <= $floors[$floor][$i]['koordinata_y']+$floors[$floor][$i]['sirina'])
             {
                 $hall = $floors[$floor][$i]['prostorija'];
@@ -67,10 +65,7 @@
         }
     }
     
-
- 
-    $message = [];
-  
+    $message = [];  
     $tempic = getCapacity($hall);
        
     $message['capacity'] = $tempic;
@@ -91,15 +86,16 @@
         {
             $db = DB::getConnection();
             $st = $db->prepare( "SELECT capacity FROM project_lecture_halls " ."WHERE title LIKE :title " );
-
             $st->execute( array( 'title' => $hall) );
         } 
         catch( PDOException $e ) { exit( 'PDO error ' . $e->getMessage() ); }
     
         $capacity=0;
+
         while( $row = $st->fetch()){
             $capacity = $row['capacity'];            
         }
+
         return $capacity;
     }
 

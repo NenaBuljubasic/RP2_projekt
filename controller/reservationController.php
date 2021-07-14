@@ -13,10 +13,9 @@ class ReservationController extends BaseController{
         
         foreach($arr as $row)
             if(isset($_POST[$row->id_reservation]))
-                       { 
-                         
-                         $rs->deleteReservation($row->id_reservation);
-                      }
+            { 
+                $rs->deleteReservation($row->id_reservation);
+            }
      header('Location:index.php?rt=user/show');
    }
     public function reserve()
@@ -28,12 +27,9 @@ class ReservationController extends BaseController{
         if(isset($_POST['reserve']))
         {
             $pr = $rs->newReservation($_POST['start'],$_POST['end'],$_POST['hall'], $user , $_POST['date'] );//morat će nešto slat                        
-            //return $pr;
-            
-            
+           
         }
-        //$this->registry->template->show( 'reservation_index' );
-        //require_once __DIR__.'/../view/reservation_index.php';
+
     }
     
 }

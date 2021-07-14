@@ -96,17 +96,19 @@ class ReservationService{
 
         foreach($arr as $row)
             if($row->username === $username)///provjeri lozinku
-                    {
-                    if(password_verify($password,$row->password_hash))
-                                {$_SESSION['user_id']=$row->id;
-                                return true;}
-                    }
+            {
+                if(password_verify($password,$row->password_hash))
+                {
+                    $_SESSION['user_id']=$row->id;
+                    return true;
+                }
+            }
 
 	//$_SESSION['user_id']=$row->id;
         return false;
     }   
     
- function getUsersReservations($id_user) //prima id usera i dohvaca sve njegove rezervacija
+    function getUsersReservations($id_user) //prima id usera i dohvaca sve njegove rezervacija
     {   
         $arr=$this->getAllReservations();
         
@@ -114,23 +116,23 @@ class ReservationService{
         $outputArrayForDates=[];
         foreach($arr as $row)
             if($id_user===$row->id_user)
-                {   
-                    array_push($outputArrayForTitles,$this->getLecture_hallById($row->id_lecture_hall));
-                    array_push($outputArrayForDates,$row);
-                }                      
+            {   
+                array_push($outputArrayForTitles,$this->getLecture_hallById($row->id_lecture_hall));
+                array_push($outputArrayForDates,$row);
+            }                      
         $outputArray=[$outputArrayForTitles,$outputArrayForDates];
         return $outputArray;
     }
 
 
-function getUserId($username)//dohvaca korisnikov id
-   {$arr=$this->getAllUsers();
+    function getUserId($username)//dohvaca korisnikov id
+    {
+        $arr=$this->getAllUsers();
+        foreach($arr as $row)
+                if($row->username===$username) return $row->id;
 
-    foreach($arr as $row)
-         if($row->username===$username) return $row->id;
-
-    return false;
-   }
+        return false;
+    }
 
     function getLecture_hallById($id_lecture_hall)//dohvaca red u bazi s odg id-om prostorije
     { 
@@ -144,26 +146,9 @@ function getUserId($username)//dohvaca korisnikov id
     }
 
 
-
-
-    function adminDeleteReservation() //funkcija u kojoj admin brise bilo koju rezervaciju
-        {}
-
-    function adminDeleteUser() //admin brise usera
-        {}
-
-    function adminDeleteLecture_hall() //admin brise predavaonicu
-        {}
-    function adminAddLecture_hall() //admin dodaje predavaonicu 
-        {}
-
-
-
-
-
-function addNewUser($username,$password_hash,$email) //dodavanje novog korisnika
-    { $arr=$this->getAllUsers();
-
+    function addNewUser($username,$password_hash,$email) //dodavanje novog korisnika
+    { 
+        $arr=$this->getAllUsers();
 
         foreach($arr as $row)
             if($row->username===$username)
@@ -209,8 +194,7 @@ function addNewUser($username,$password_hash,$email) //dodavanje novog korisnika
     {
         
         try
-        {
-        
+        {        
             $temp = explode('/', $date);
             $date1 = $temp[2] . '-' . $temp[0] . '-' . $temp[1];
 
