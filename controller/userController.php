@@ -7,13 +7,13 @@ class UserController extends BaseController{
   public function index() 
 	{
 		if(isset($_SESSION["username"]))
-			$_SESSION["username"] = NULL;
+			session_destroy();
 		$this->registry->template->show( 'login_index' );
 	}
 public function login()//provjera je li korisnik u bazi
 	 { 
 		if(isset($_SESSION["username"]))
-			$_SESSION["username"] = NULL;
+			session_destroy();
 	  $ps = new ReservationService();
 	  
 	if(!isset($_SESSION["user_id"]))
