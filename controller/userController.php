@@ -6,12 +6,14 @@
 class UserController extends BaseController{
   public function index() 
 	{
-		session_destroy();
+		if(isset($_SESSION["username"]))
+			$_SESSION["username"] = NULL;
 		$this->registry->template->show( 'login_index' );
 	}
 public function login()//provjera je li korisnik u bazi
 	 { 
-		session_destroy();
+		if(isset($_SESSION["username"]))
+			$_SESSION["username"] = NULL;
 	  $ps = new ReservationService();
 	  
 	if(!isset($_SESSION["user_id"]))
@@ -50,6 +52,8 @@ public function login()//provjera je li korisnik u bazi
 			}
 		public function show()//vraca popis rezervacija
 		{
+			if(isset($_SESSION["username"]))
+				$_SESSION["username"] = NULL;
 			$ps = new ReservationService();
 			if($ps->checkAdmin($_SESSION["user_id"]) === true)
 			{
@@ -111,7 +115,8 @@ public function unlogged()
    }
 public function administrator()
    { 
-	session_destroy();
+	if(isset($_SESSION["username"]))
+		$_SESSION["username"] = NULL;
 	   $ps=new ReservationService();
 	 $id=$ps->getUserId($_POST["username"]);
 	 
@@ -131,7 +136,8 @@ public function administrator()
 	{
 		$_POST["username"] = NULL;
 		$_POST["password"] = NULL;
-		session_destroy();
+		if(isset($_SESSION["username"]))
+			$_SESSION["username"] = NULL;
 		require_once __DIR__.'/../view/administrator_index.php';
 	}
            
