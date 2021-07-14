@@ -1,6 +1,6 @@
 <?php 
 
-
+/*
 class LoginController extends BaseController
 {
 	public function index() 
@@ -28,5 +28,5 @@ class LoginController extends BaseController
 	}
 
 }; 
-
+*/
 ?>

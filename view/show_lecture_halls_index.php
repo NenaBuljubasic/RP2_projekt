@@ -4,7 +4,7 @@
 <form action="index.php?rt=reservation/delete" method="post">
     <div id="wrapper">
             <label for="table">
-            <table>
+            <table id="tablica">
             <?php 
             
                 echo "<tr>";

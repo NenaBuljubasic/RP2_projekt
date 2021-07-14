@@ -82,7 +82,7 @@ public function login()
 					require_once __DIR__.'/../view/reservation_index.php';
 				  }	   
 		     else
-			 require_once __DIR__.'/../view/site_index.php';
+			 require_once __DIR__.'/../view/signup_index.php';
 		} 
 
 
