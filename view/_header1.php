@@ -17,7 +17,7 @@
 </head>
 <body>
 	<h1>
-	    Rezerviraj prostoriju
+	    Rezervacija prostorija na fakultetu
 	</h1>
 
 

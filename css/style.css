@@ -44,7 +44,7 @@ body{
 	background-repeat: repeat-y;
 	background-position: right top;
 	background-attachment: fixed;
-	margin: 0px;
+	margin-left: 300px;
 	
   	
   	/*color:#ffecdb;*/
@@ -160,7 +160,7 @@ nav {
 	margin: 27px auto 0;
 
 	position: relative;
-	width: 1000px;
+	width: 600px;
 	height: 50px;
 	/*background-color: #34495e;*/
 	background-color:white;
@@ -171,6 +171,7 @@ nav {
 nav a {
 	line-height: 50px;
 	height: 100%;
+	width:60px;
 	font-size: 15px;
 	display: inline-block;
 	position: relative;

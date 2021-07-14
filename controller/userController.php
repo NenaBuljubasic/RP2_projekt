@@ -73,9 +73,8 @@ public function login()
       {
         $ps = new ReservationService();
 			$_SESSION['username'] = $_POST["username"];
-			$_SESSION['password']=$_POST["password"];
             $email=$_POST["email"];
-			if($ps->addNewUser($_SESSION['username'],$_SESSION['password'],$email))
+			if($ps->addNewUser($_SESSION['username'],$_POST['password'],$email))
 			      {
 					$_SESSION['user_id']=$ps->getUserId($_SESSION['username']);
 					

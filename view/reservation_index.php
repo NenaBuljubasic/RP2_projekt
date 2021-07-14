@@ -73,7 +73,7 @@
         <canvas width="1000" height="500" id="cnv" style="border: solid 1px;"></canvas>
         <br/>
         <button type="sumbit" id="reserve" name="reserve">Rezerviraj</button> 
-        <button type="sumbit" id="halls" name="halls">Pogledaj učionice</button>   
+   
         
 
 	</ul>

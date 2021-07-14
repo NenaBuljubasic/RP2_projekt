@@ -11,20 +11,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" ></script>
     
 
-    <title>First page</title>
 </head>
 <body>
-
+    <h1>Raspored rezervacija po prostorijama</h1>
              <div class="floors">
             <select name="floor" id="floor">
-                <option value="ground_floor" name="ground_floor">Ground floor</option>
-                <option value="first_floor" name="first_floor">First floor</option>
+                <option value="ground_floor" name="ground_floor">Prizemlje</option>
+                <option value="first_floor" name="first_floor">Prvi kat</option>
             </select>
         </div>
-        Date: 
+        Datum: 
             <input type="text" id="my_date_picker">
  
-        <button id="show_calendar">Show calendar</button>
+        <button id="show_calendar">Pokaži kalendar</button>
 
         <div id="calendar"></div>
 <script>

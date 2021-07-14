@@ -1,6 +1,7 @@
 
-<?php require_once __SITE_PATH . '/view/_header.php'; ?>
+<?php require_once __SITE_PATH . '/view/_header1.php'; ?>
 <?php require_once __SITE_PATH . '/view/toolbar_index.php'; ?>
+
 <form action="index.php?rt=reservation/delete" method="post">
     <div id="wrapper">
             <label for="table">
