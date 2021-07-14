@@ -1,7 +1,7 @@
 <?php
 
 
-class SiteController extends BaseController{
+class SiteController extends BaseController{//u ovisnosti o tome koji je gumb stisnut postavlja odgovarajucu stranicu
 
 public function index()
 {

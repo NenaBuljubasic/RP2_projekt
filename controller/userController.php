@@ -8,7 +8,7 @@ class UserController extends BaseController{
 	{
 		$this->registry->template->show( 'login_index' );
 	}
-public function login()
+public function login()//provjera je li korisnik u bazi
 	 { 
 	  $ps = new ReservationService();
 	  
@@ -46,7 +46,7 @@ public function login()
 					
 					
 			}
-		public function show()
+		public function show()//vraca popis rezervacija
 		{
 			$ps = new ReservationService();
 			if($ps->checkAdmin($_SESSION["user_id"]) === true)
@@ -69,8 +69,18 @@ public function login()
 			require_once __DIR__.'/../view/show_lecture_halls_index.php';
 		}
 			
-	public function signup()
+	public function signup()//funkcija za dodavanje novog korisnika
       {
+        if($_POST["username"]==="" or $_POST["password"]==="")
+		     {  session_destroy();
+				
+				require_once __DIR__.'/../view/signup_index.php';
+
+				exit;  
+			 }
+
+
+
         $ps = new ReservationService();
 			$_SESSION['username'] = $_POST["username"];
             $email=$_POST["email"];
@@ -85,7 +95,7 @@ public function login()
 		} 
 
 
-   public function logout()
+   public function logout()//odjava, zavrsava sesiju
        {
 			session_destroy();
 		   require_once __DIR__.'/../view/site_index.php';

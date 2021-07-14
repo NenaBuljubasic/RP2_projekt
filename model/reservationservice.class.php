@@ -90,7 +90,7 @@ class ReservationService{
         return false;
     }
     
-    function checkLogin($username,$password)
+    function checkLogin($username,$password)//provjera postoji li korisnik u bazi
     {
         $arr=$this->getAllUsers();
 
@@ -123,7 +123,7 @@ class ReservationService{
     }
 
 
-function getUserId($username)
+function getUserId($username)//dohvaca korisnikov id
    {$arr=$this->getAllUsers();
 
     foreach($arr as $row)
@@ -132,7 +132,7 @@ function getUserId($username)
     return false;
    }
 
-    function getLecture_hallById($id_lecture_hall)
+    function getLecture_hallById($id_lecture_hall)//dohvaca red u bazi s odg id-om prostorije
     { 
         $arr=$this->getAllLecture_halls();
         
@@ -161,7 +161,7 @@ function getUserId($username)
 
 
 
-function addNewUser($username,$password_hash,$email) 
+function addNewUser($username,$password_hash,$email) //dodavanje novog korisnika
     { $arr=$this->getAllUsers();
 
 
@@ -189,7 +189,7 @@ function addNewUser($username,$password_hash,$email)
 
 
 
-    function deleteReservation($reservation_id)
+    function deleteReservation($reservation_id)//brise rezervaciju
     {
 
         try

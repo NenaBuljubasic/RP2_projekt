@@ -6,7 +6,7 @@ class ReservationController extends BaseController{
 	{
 		
 	}
-    public function delete()
+    public function delete()//brise rezervaciju i vraca na stranicu za ispis rezervacija
     {  
         $rs=new ReservationService();
         $arr=$rs->getAllReservations();
@@ -17,7 +17,7 @@ class ReservationController extends BaseController{
                          
                          $rs->deleteReservation($row->id_reservation);
                       }
-     header('Location:index.php?rt=user/login');
+     header('Location:index.php?rt=user/show');
    }
     public function reserve()
     {

@@ -1,8 +1,10 @@
+.check checkbox{
+    box-align: center;
+  }
 td,th {
 	border:solid 1px;
 
 }
-
 th a {
    width: 100%;
 }
@@ -40,18 +42,22 @@ button {
   align-self: center;
 
 }
+button:hover{
+	background-color: #0f8d74;
+}
+
 body{
 	background-repeat: repeat-y;
 	background-position: right top;
 	background-attachment: fixed;
-	margin-left: 300px;
+	margin-left: 200px;
 	
   	
   	/*color:#ffecdb;*/
 	/*color:white;*/
 	/*margin-bottom: 80px;*/
 	overflow-x:hidden;
-	font-size: 12px;
+	font-size: 16px;
 	font-family: 'Cherry Swash', cursive;
 	/*background: #2c3e50;*/
 	background-color: whitesmoke;
@@ -76,9 +82,10 @@ input {
   box-sizing: border-box; /* Make sure that padding and width stays in place */
   margin-top: 6px; /* Add a top margin */
   margin-bottom: 16px; /* Bottom margin */
+  font-family: 'Cherry Swash', cursive;
   
   float:center;  
-  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+  resize: vertical  /*Allow the user to vertically resize the textarea (not horizontally) */
 }
 #radio{
 	width: auto;
@@ -137,9 +144,14 @@ footer{
 	padding: 10px;
 }
 
-
-
-
+#pocetna1{
+	float:left;
+	margin-left: 100px;
+}
+#pocetna2{
+	float:right;
+	margin-right:100px;
+}
 .header_menu{
 	width:33%;
   float: left;
@@ -157,15 +169,15 @@ form p{
 	font-weight: bold;
 }
 nav {
-	margin: 27px auto 0;
-
-	position: relative;
+	margin: 30px;
+	position:sticky;
 	width: 600px;
 	height: 50px;
 	/*background-color: #34495e;*/
 	background-color:white;
 	color:#2c3e50;
 	border-radius: 8px;
+	font-family: 'Cherry Swash', cursive;
 	font-size: 0;
 }
 nav a {
@@ -175,7 +187,7 @@ nav a {
 	font-size: 15px;
 	display: inline-block;
 	position: relative;
-	z-index: 1;
+	z-index: 0;
 	text-decoration: none;
 	text-transform: uppercase;
 	text-align: center;
@@ -190,8 +202,9 @@ nav .animation {
 	top: 0;
 	z-index: 0;
 	transition: all .5s ease 0s;
-	border-radius: 8px;
+	border-radius: 8px;	
 }
+
 a:nth-child(1) {
 	width: 200px;
 }
@@ -206,7 +219,7 @@ a:nth-child(4) {
 }
 a:nth-child(5) {
 	width: 200px;
-}
+} 
 nav a:nth-child(1):hover{
 	width: 200px;
 	left: 0;
@@ -243,9 +256,8 @@ title{
 }
 
 h1 {
-	text-align: center;
+	text-align: left;
 	margin: 40px 0 40px;
-	text-align: center;
 	font-size: 30px;
 	color: #dfe6e4;
 	text-shadow: 2px 2px 4px #000000;
