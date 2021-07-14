@@ -6,6 +6,8 @@
 class UserController extends BaseController{
   public function index() 
 	{
+		if(isset($_SESSION["username"]))
+			$_SESSION["username"] = NULL;
 		$this->registry->template->show( 'login_index' );
 	}
 public function login()//provjera je li korisnik u bazi
