@@ -82,6 +82,11 @@
     
     function getCapacity($hall)
     {
+        if($hall[0] == 'P')
+        {
+            $hall1 = 'PR' . $hall[10];
+            $hall = $hall1;
+        }  
         try
         {
             $db = DB::getConnection();
