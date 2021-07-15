@@ -214,11 +214,11 @@ class ReservationService{
 
             if($current_date >= $begin)
             {
-                return -3; //ako je krivi
+                return -1; //ako je odabran datum koji je prošao
             }
             if($begin >= $endd)
             {
-                return -1;
+                return -2; // ako je početno vrijeme kasnije od završnog
             }
             
             $start2 = date ('Y-m-d H:i:s', strtotime($start1));
@@ -239,7 +239,7 @@ class ReservationService{
                 $dd = $dt -> format('Y-m-d H:i:s');
                 if( $start2 >= $row['reservation_start']  and $start2 < $row['reservation_end']  and (int)$row['id_lecture_hall'] === (int)$hall1) 
                 {
-                   return -2;// -2 za koliziju s rezervacijom iz baze
+                   return -3;// -3 za koliziju s rezervacijom iz baze
                 }
             }
   
