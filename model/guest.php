@@ -17,7 +17,7 @@
         $message['error'] = $messageText;
         sendJSONandExit($message);
     }
-
+    // Služilo samo za provjeru i debugiranje
     function debug_to_console($data) {
         $output = $data;
         if (is_array($output))
@@ -25,7 +25,7 @@
     
         echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
     }
-
+    // Ne bi, zbog ograničenja u skripti Guest.php u view, nikad smjelo doći do ovoga, ali mjera opreza nikad dosta
     if(!isset($_POST['floor']))
         sendErrorAndExit("Morate odabrati kat. Pokušajte ponovo!");
     if(!isset($_POST['my_date']))
@@ -52,6 +52,7 @@
     
     function getReservationsByDate($floor, $my_date)
     {
+        // Pokušaj dohvatiti iz baze uređene n-torke
         try
         {
             $db = DB::getConnection();
@@ -62,6 +63,7 @@
     
         $return = array();
         while( $row = $st->fetch()){
+            //Datumi u bazi su oblika date + time pa je poretbno rastaviti
             $dt = new DateTime($row['reservation_start']);
             $dd = new DateTime($row['reservation_end']);
             $date = $dt->format('Y-m-d');
