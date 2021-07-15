@@ -50,7 +50,7 @@
     
     $floor = $_POST['floor'];
 
-    $hall = "PRAZNO";
+    $hall = "";
     $x = $_POST['x'];
     $y = $_POST['y'];
 
