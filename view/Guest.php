@@ -30,11 +30,11 @@
 <script>
     $(document).ready(function(){
             $("#my_date_picker").datepicker();
-
             $("#show_calendar").on("click", send_parameters);
         });
 
         function send_parameters(){
+		//Kao parametre pošalji kat - pretvori u broj i obavezno odaberi datum za pregled rezervacija
             var temp_floor = $('#floor').val();
             var floor = 0;
             if (temp_floor === "first_floor")
@@ -43,11 +43,12 @@
             if(temp === null)
                 alert("You have to select a date!");
             else{
+		    // Pretvori u dobar format da se slaže s onim u bazi podataka
                 var my_date = temp.getFullYear() + "-" +  (temp.getMonth()+1) + "-" + temp.getDate();
                 
                 //alert(location.protocol + "//" + location.hostname  + location.pathname.replace('index.php', '') + 'model/guest.php');  
                 $.ajax({
-                    
+                    // Pošalji url za php skriptu odgovornu za komunikaciju sa serverom i bazom podataka
                     url:location.protocol + "//" + location.hostname  + location.pathname.replace('index.php', '') + '/model/guest.php',
                     data:{
                         floor:floor,
@@ -74,6 +75,7 @@
 
         crtaj_kalendar = function(data){
       
+		// Dinamički stvaraj kalendar - tablicu
             var tbl = $("<table class='tablica'></table>");
 
             if($('#floor').val() === 'ground_floor'){
@@ -102,6 +104,9 @@
                             {
                                 
                                 var hours = (data[k][key]).split(",");
+				    // Malo nezgrapno, ali - provjeri je li id broja prostorije, koji je ključ, jednak "redu" u for petlji
+				    // A onda provjeri je li vrijednosti tog ključa "upadaju" u neke sate,
+				    // odnosno provjeri je li početni sat manji od p, a krajnji sat veći - sve između bojaj
                                 if(parseInt(key)===l && parseInt(hours[0]) <= p && parseInt(hours[1]) > p)
                                     var temp_colm = $("<td style='background-color: rgb(255, 0, 0)'></td>");
                             }
@@ -114,6 +119,7 @@
                 }
                 
             }
+		// sve isto, samo za drugi kat fakulteta
             else if($('#floor').val() === 'first_floor')
             {
                 tbl.append($('<th>Time</th>'));
@@ -170,6 +176,7 @@
             $("#calendar").html(tbl);
         }
     </script>
+	// Gumb za povratak na početnu stranicu
     <form action="<?php echo __SITE_URL.'/index.php?rt'?>">
     <button>Početna stranica</button>
     </form>
