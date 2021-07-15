@@ -50,7 +50,7 @@
     
     $floor = $_POST['floor'];
 
-    $hall = "";
+    $hall = NULL;
     $x = $_POST['x'];
     $y = $_POST['y'];
 
@@ -66,7 +66,6 @@
     }
     
     $message = [];  
-
     $tempic = getCapacity($hall);
        
     $message['capacity'] = $tempic;
@@ -91,11 +90,11 @@
         } 
         catch( PDOException $e ) { exit( 'PDO error ' . $e->getMessage() ); }
     
+        $capacity=0;
 
         while( $row = $st->fetch()){
             $capacity = $row['capacity'];            
         }
-        
 
         return $capacity;
     }
