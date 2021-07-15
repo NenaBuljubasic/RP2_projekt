@@ -95,8 +95,7 @@
         while( $row = $st->fetch()){
             $capacity = $row['capacity'];            
         }
-        if(!($capacity >= 0) )
-            $capacity=-1;
+        
 
         return $capacity;
     }
